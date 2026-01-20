@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>M&amp;E Films - Filmmaking for Good</title>
+<style>
+        @import url('https://fonts.cdnfonts.com/css/avenir');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Avenir', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation - Minimal & Cinematic */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-nav {
+            height: 30px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 80px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 80px 80px 80px;
+        }
+
+        .hero h1 {
+            font-size: 120px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+        }
+
+        /* Stats Banner */
+        .stats-section {
+            background: #0F2026;
+            padding: 60px 80px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 5px;
+            font-weight: 700;
+        }
+
+        /* Content Sections - Wider Layout */
+        .content-wrapper {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        /* Statement 1 Section */
+        .statement-1-section {
+            background: #000;
+            padding: 100px 0;
+        }
+
+        .statement-1-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 120px;
+        }
+
+        .statement-1-left {
+            flex: 1;
+            max-width: 700px;
+        }
+
+        .logo-large {
+            height: 80px;
+            margin-bottom: 40px;
+        }
+
+        .statement-1-left p {
+            font-size: 18px;
+            line-height: 1.4;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #fff;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .statement-1-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .festival-laurels {
+            text-align: center;
+        }
+
+        /* Approach Section */
+        .approach-section {
+            background: #0F2026;
+            padding: 100px 0;
+        }
+
+        .approach-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            line-height: 1.3;
+        }
+
+        .approach-section p {
+            font-size: 18px;
+            line-height: 1.4;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            max-width: 50%;
+        }
+
+        /* Video + Statement 3 Section */
+        .video-statement-section {
+            background: #0F2026;
+            padding: 100px 0;
+        }
+
+        .video-statement-content {
+            display: flex;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .video-left {
+            flex: 1;
+        }
+
+        .video-embed {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .video-embed img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .video-embed.playing iframe {
+            display: block;
+        }
+
+        .video-embed.playing img {
+            display: none;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 2;
+        }
+
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-embed.playing .play-button {
+            display: none;
+        }
+
+        .statement-3-right {
+            flex: 1;
+        }
+
+        .statement-3-right p {
+            font-size: 18px;
+            line-height: 1.4;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 40px;
+        }
+
+        /* Impact Slider Section */
+        .impact-section {
+            background: url('MaybeOneDayI_llFly__edited.jpg') center/cover no-repeat;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .impact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1;
+        }
+
+        .impact-section .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 80px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #f8f8f8;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 500px;
+            background: transparent;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .story-card {
+            min-width: 100%;
+            padding: 40px 80px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+        }
+
+        .client-header {
+            margin-bottom: 20px;
+        }
+
+        .client-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .client-name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .video-location {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .story-content {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .flip-container {
+            perspective: 1000px;
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .flip-label {
+            position: absolute;
+            top: -35px;
+            left: 0;
+            width: 100%;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+            z-index: 3;
+        }
+
+        .flip-label.problem {
+            opacity: 1;
+        }
+
+        .flip-label.solution {
+            opacity: 0;
+        }
+
+        .flip-container.flipped .flip-label.problem {
+            opacity: 0;
+        }
+
+        .flip-container.flipped .flip-label.solution {
+            opacity: 1;
+        }
+
+        .flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .before-after-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .before-after-text.before {
+            background: transparent;
+            z-index: 2;
+        }
+
+        .before-after-text.after {
+            background: transparent;
+            transform: rotateY(180deg);
+        }
+
+        .flip-container.flipped .flipper {
+            transform: rotateY(180deg);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .carousel-nav.prev {
+            left: 40px;
+        }
+
+        .carousel-nav.next {
+            right: 40px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #fff;
+            transform: scale(1.3);
+        }
+
+        /* Trusted By Section */
+        .trusted-section {
+            background: #000;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .trusted-section h3 {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 50px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 80px;
+        }
+
+        .client-logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .client-logo-text:hover {
+            opacity: 1;
+        }
+
+        /* Our Focus Section */
+        .focus-section {
+            background: #0F2026;
+            padding: 100px 0;
+        }
+
+        .focus-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+        }
+
+        .focus-item {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .focus-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .focus-item h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .focus-item p {
+            color: rgba(255,255,255,0.7);
+            font-size: 16px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: #000;
+            padding: 100px 0;
+        }
+
+        .testimonials-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .testimonials-section .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 60px;
+            font-size: 18px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.05);
+            padding: 35px;
+            border-left: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #0F2026;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .contact-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 40px 80px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .content-wrapper {
+                max-width: 1200px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 80px;
+            }
+
+            .focus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 30px;
+            }
+
+            nav ul {
+                gap: 30px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .hero-content {
+                padding: 0 30px 60px 30px;
+            }
+
+            .content-wrapper {
+                padding: 0 30px;
+            }
+
+            .statement-1-content,
+            .video-statement-content {
+                flex-direction: column;
+            }
+
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.1s, transform 1.1s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+/* Awards slideshow (one at a time, 4s each) */
+.awards-slideshow { width: 100%; }
+.awards-viewport { width: 100%; overflow: hidden; border-radius: 12px; }
+.awards-track { display: flex; transform: translateX(0); will-change: transform; }
+.awards-slide { flex: 0 0 100%; width: 100%; display: flex; align-items: center; justify-content: center; padding: 6px 0; }
+.awards-slide img { width: 100%; max-width: 520px; height: auto; display: block; }
+
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav>
+<img alt="M&amp;E Films" class="logo-nav" src="ME_Final_Logo_White_Transparentsmall.png"/>
+<ul>
+<li><a href="about.html">ABOUT</a></li>
+<li><a href="portfolio.html">PORTFOLIO</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+</ul>
+</nav>
+<!-- Hero Section -->
+<section class="hero">
+<video autoplay="" class="hero-video" loop="" muted="" playsinline="">
+<source src="Safari_for_website.mp4" type="video/mp4"/>
+</video>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<h1>FILMMAKING<br/>FOR GOOD</h1>
+</div>
+</section>
+<!-- Stats Banner -->
+<div class="stats-section">
+<div class="stats-container">
+<div class="stat-box">
+<div class="stat-icon">💰</div>
+<div class="stat-number" data-target="500000">$0</div>
+<div class="stat-label">Raised</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">🌍</div>
+<div class="stat-number" data-target="45">0</div>
+<div class="stat-label">Countries</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">📽️</div>
+<div class="stat-number" data-target="5000000">0</div>
+<div class="stat-label">Total Views</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">🤝</div>
+<div class="stat-number" data-target="100">0</div>
+<div class="stat-label">Organizations</div>
+</div>
+</div>
+</div>
+<!-- Statement 1 Section -->
+<section class="statement-1-section">
+<div class="content-wrapper">
+<div class="statement-1-content fade-in">
+<div class="statement-1-left">
+<img alt="M&amp;E Films" class="logo-large" src="ME_Final_Logo_White_Transparentsmall.png"/>
+<p>M&E Films is a husband and wife film team that leverages modern video production tools to create powerful stories that move audiences in entirely new ways. Our process extends beyond the studio; we are a highly capable field production team that excels in capturing cinematic moments through non-intrusive methods, blending immersive visuals and sound to help our clients connect with their audiences, moving them to action.</p>
+<a class="btn" href="M_E_Films_Capabilities_sheet__2_.pdf" target="_blank">CAPABILITIES SHEET</a>
+</div>
+<div class="statement-1-right">
+
+<div class="awards-slideshow" aria-label="Awards slideshow">
+  <div class="awards-viewport">
+    <div class="awards-track" id="awardsTrack">
+      <div class="awards-slide"><img src="awards/athens.png" alt="Official Selection - Athens International Monthly Art Film Festival - 2024"></div>
+      <div class="awards-slide"><img src="awards/filmone.png" alt="Official Selection - FilmOneFest (Films under 2 Minutes) - 2025"></div>
+      <div class="awards-slide"><img src="awards/hecare.png" alt="Official Selection - HECare Film Festival (HECFF) - 2024"></div>
+      <div class="awards-slide"><img src="awards/indiefilmla.png" alt="Official Selection - Indie Film LA - 2026"></div>
+      <div class="awards-slide"><img src="awards/liftoff.png" alt="Official Selection - Lift-Off Filmmaker Sessions Volume 4 - 2023"></div>
+      <div class="awards-slide"><img src="awards/maxsir.png" alt="Official Selection - Max Sir International Film Festival - 2023"></div>
+      <div class="awards-slide awards-clone"><img src="awards/athens.png" alt=""></div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+<!-- Approach Section -->
+<section class="approach-section">
+<div class="content-wrapper">
+<h2 class="fade-in">Every story demands it's own approach.</h2>
+<p class="fade-in">We produce films in multiple forms: donor-driven shorts that drive action, character-focused narratives that empower, documentary interviews capturing unfiltered perspectives, and immersive projects that place audiences inside the story. Some are nuanced. Some are bold. All are intentional, designed to inform, shift perspectives, and amplify voices that need to be heard.</p>
+</div>
+</section>
+<!-- Video + Statement 3 Section -->
+<section class="video-statement-section">
+<div class="content-wrapper">
+<div class="video-statement-content fade-in">
+<div class="video-left">
+<div class="video-embed" onclick="playVideo(this, 'cSkeI8sk6nc')">
+<img alt="M&amp;E Films" src="M_E_Films.png"/>
+<div class="play-button">▶</div>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src=""></iframe>
+</div>
+</div>
+<div class="statement-3-right">
+<p>We're always exploring the newest tech and software tools as our industry is constantly evolving. We want to ensure that our clients will continue to stand out. We have recently introduced a 360 camera, FPV Drone, and the newest AI tools, all locally on our computers; not only does this add to our creative arsenal, but it challenges us to continue to grow as filmmakers and storytellers.</p>
+<a class="btn" href="Our_Process.PNG" target="_blank">DISCOVER OUR PROCESS</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Slider Section -->
+<section class="impact-section">
+<div class="content-wrapper">
+<h2 class="section-title fade-in">IMPACT</h2>
+<div class="carousel-wrapper">
+<div class="carousel-track" id="carouselTrack">
+<!-- Story 1 - Hope for Kajiado -->
+<div class="story-card">
+<div class="client-header">
+<div class="client-logo">
+<img alt="Hope for Kajiado logo" src="https://static.wixstatic.com/media/e031c8_30883403f13044a489192fd01c97bcc4~mv2.png"/>
+</div>
+<h3 class="client-name">Hope for Kajiado</h3>
+<div class="video-location">Featured at the beginning of all donor pitches and fundraising presentations</div>
+</div>
+<div class="story-content">
+<div class="flip-container" id="flip1">
+<div class="flip-label problem">Our Approach</div>
+<div class="flip-label solution">The Impact</div>
+<div class="flipper">
+<div class="before-after-text before">
+                                        We created a series of videos showing the challenges that Kenyans face and what the organization is doing to help their children.
+                                    </div>
+<div class="before-after-text after">
+                                        These videos were used to raise over $500,000. The organization built 4 new school buildings and a state of the art dining hall, becoming one of the best schools in southern Kenya.
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Story 2 - The Lion Project -->
+<div class="story-card">
+<div class="client-header">
+<div class="client-logo">
+<img alt="The Lion Project logo" src="https://static.wixstatic.com/media/e031c8_71b385ecbe1144b5881f9a25351c9486~mv2.jpg"/>
+</div>
+<h3 class="client-name">The Lion Project</h3>
+<div class="video-location">Premiered at their Annual Gala fundraising event</div>
+</div>
+<div class="story-content">
+<div class="flip-container" id="flip2">
+<div class="flip-label problem">Our Approach</div>
+<div class="flip-label solution">The Impact</div>
+<div class="flipper">
+<div class="before-after-text before">
+                                        We created impact videos showing how corporate donations directly help conservation projects and local communities.
+                                    </div>
+<div class="before-after-text after">
+                                        The videos helped companies visualize their philanthropic impact, leading to increased corporate donations and engagement.
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Story 3 - The EarthShot Foundation -->
+<div class="story-card">
+<div class="client-header">
+<div class="client-logo">
+<img alt="The EarthShot Foundation logo" src="https://static.wixstatic.com/media/e031c8_e7283948fb964c47920945771619b201~mv2.png"/>
+</div>
+<h3 class="client-name">The EarthShot Foundation</h3>
+<div class="video-location">Screened at Kennedy Space Center and DC Gala Event</div>
+</div>
+<div class="story-content">
+<div class="flip-container" id="flip3">
+<div class="flip-label problem">Our Approach</div>
+<div class="flip-label solution">The Impact</div>
+<div class="flipper">
+<div class="before-after-text before">
+                                        We created an immersive film that transported viewers into the heart of the planet, forging an emotional connection to the cause.
+                                    </div>
+<div class="before-after-text after">
+                                        The film became a key tool in their donor communications, effectively conveying why their work deserves support.
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="carousel-nav prev" onclick="moveSlide(-1)">❮</button>
+<button class="carousel-nav next" onclick="moveSlide(1)">❯</button>
+</div>
+<div class="carousel-dots">
+<span class="dot active" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
+<span class="dot" onclick="currentSlide(3)"></span>
+</div>
+</div>
+</section>
+<!-- Trusted By Section -->
+<section class="trusted-section fade-in">
+<div class="content-wrapper">
+<h3>TRUSTED BY</h3>
+<div class="client-logos">
+<div class="client-logo-text">BBC</div>
+<div class="client-logo-text">HEARST</div>
+<div class="client-logo-text">HABITAT FOR HUMANITY</div>
+<div class="client-logo-text">POPULAR MECHANICS</div>
+<div class="client-logo-text">ANJUNADEEP</div>
+</div>
+</div>
+</section>
+<!-- Our Focus Section -->
+<section class="focus-section">
+<div class="content-wrapper">
+<h2 class="fade-in">Our Focus</h2>
+<div class="focus-grid fade-in">
+<div class="focus-item">
+<h3>Narrative</h3>
+<p>Award-Winning Productions</p>
+</div>
+<div class="focus-item">
+<h3>Documentary</h3>
+<p>Real Stories Captured</p>
+</div>
+<div class="focus-item">
+<h3>Branded</h3>
+<p>Engaging Ad Campaigns</p>
+</div>
+<div class="focus-item">
+<h3>Art/Event</h3>
+<p>Cinematic Creations</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="testimonials-section fade-in">
+<div class="content-wrapper">
+<h2>Client Stories</h2>
+<p class="subtitle">Our clients say it best.</p>
+<div class="testimonials-grid">
+<div class="testimonial">
+<p>"I assign work to freelancers from all around the world and they are among the best! They had great communication; they asked the right questions and took initiative. I would 100% recommend them."</p>
+<div class="testimonial-author">— Jimmy Cavalieri</div>
+</div>
+<div class="testimonial">
+<p>"They were very good at coaching the interviewees to provide great footage and they really enhanced and made the best of mundane and messy office backgrounds. M&amp;E Films shepherded us through very graciously."</p>
+<div class="testimonial-author">— Sally Kribs, Wright Water Engineers</div>
+</div>
+<div class="testimonial">
+<p>"We are so impressed with the professionalism and talents of these wonderful people. This team has been an extremely valuable resource to our non-profit organization."</p>
+<div class="testimonial-author">— Gaye List, Hope For Kajiado</div>
+</div>
+<div class="testimonial">
+<p>"They have made such an impact in our ability to touch the hearts of individuals who can truly make a difference in the lives of these children."</p>
+<div class="testimonial-author">— Chairman, KCH</div>
+</div>
+<div class="testimonial">
+<p>"Outstanding work! Their dedication and commitment to excellence truly set them apart."</p>
+<div class="testimonial-author">— LIFESPAN Services</div>
+</div>
+<div class="testimonial">
+<p>"Mariessa and Evan were flexible and excelled at communication. Their footage turned out perfect, they captured exactly what we were looking for and more."</p>
+<div class="testimonial-author">— Nick Cooley, Southwire</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+<div class="content-wrapper">
+<h2>Get in Touch</h2>
+<p>Have a project in mind or interested in collaborating?<br/>Reach out to us today. We're here to support and lift up your work.</p>
+<a class="btn" href="mailto:production@mandefilms.com">CONTACT US</a>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<p>© 2024 M&amp;E Films. All rights reserved.</p>
+</footer>
+<!-- JavaScript -->
+<script>
+        // Video play function
+        function playVideo(element, videoId) {
+            element.classList.add('playing');
+            const iframe = element.querySelector('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        }
+
+        // Stats counter animation
+        function animateValue(el, start, end, duration) {
+            let range = end - start;
+            let startTime = null;
+            let step = function(timestamp) {
+                if (!startTime) startTime = timestamp;
+                let progress = Math.min((timestamp - startTime) / duration, 1);
+                let current = Math.floor(progress * range + start);
+                
+                if (el.parentElement.querySelector('.stat-label').textContent.includes('Raised')) {
+                    el.textContent = `$${current.toLocaleString()}+`;
+                } 
+                else if (el.parentElement.querySelector('.stat-label').textContent.includes('Views')) {
+                    if (current >= 1000000) {
+                        el.textContent = `${(current/1000000).toFixed(1)}M+`;
+                    } else {
+                        el.textContent = `${current.toLocaleString()}+`;
+                    }
+                }
+                else {
+                    el.textContent = `${current}+`;
+                }
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = document.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        animateValue(counter, 0, target, 2000);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.8 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Carousel functionality
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.story-card');
+        const totalSlides = slides.length;
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.dot');
+        let flipTimers = [];
+        let autoPlayTimer;
+        let isAutoPlaying = false;
+        
+        function flipCurrentSlide() {
+            const currentFlipContainer = slides[currentSlideIndex].querySelector('.flip-container');
+            if (currentFlipContainer) {
+                currentFlipContainer.classList.add('flipped');
+            }
+        }
+        
+        function updateSlidePosition() {
+            track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlideIndex);
+            });
+            
+            document.querySelectorAll('.flip-container').forEach(container => {
+                container.classList.remove('flipped');
+            });
+            
+            flipTimers.forEach(timer => clearTimeout(timer));
+            flipTimers = [];
+            
+            const timer = setTimeout(flipCurrentSlide, 4000);
+            flipTimers.push(timer);
+        }
+        
+        function moveSlide(direction) {
+            currentSlideIndex = (currentSlideIndex + direction + totalSlides) % totalSlides;
+            updateSlidePosition();
+            stopAutoPlay(); // Stop auto-play when user manually navigates
+        }
+        
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            updateSlidePosition();
+            stopAutoPlay(); // Stop auto-play when user clicks dot
+        }
+        
+        function startAutoPlay() {
+            if (!isAutoPlaying) {
+                isAutoPlaying = true;
+                autoPlayTimer = setInterval(() => {
+                    currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+                    updateSlidePosition();
+                }, 3000);
+            }
+        }
+        
+        function stopAutoPlay() {
+            isAutoPlaying = false;
+            clearInterval(autoPlayTimer);
+        }
+        
+        // Observer to start auto-play when Impact section is visible
+        const impactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoPlay();
+                } else {
+                    stopAutoPlay();
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        const impactSection = document.querySelector('.impact-section');
+        if (impactSection) {
+            impactObserver.observe(impactSection);
+        }
+        
+        // Pause auto-play on hover
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        carouselWrapper.addEventListener('mouseenter', stopAutoPlay);
+        carouselWrapper.addEventListener('mouseleave', () => {
+            // Only restart if Impact section is still visible
+            const rect = impactSection.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isVisible) {
+                startAutoPlay();
+            }
+        });
+        
+        updateSlidePosition();
+
+        // Fade-in animation on scroll
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            fadeInObserver.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    
+/* Awards slideshow (one at a time): show 1 for 4s, slide to next */
+(function(){
+  const track = document.getElementById('awardsTrack');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.awards-slide');
+  const slideCount = slides.length;
+  let i = 0;
+
+  const go = (index, withTransition=true) => {
+    track.style.transition = withTransition ? 'transform 600ms ease' : 'none';
+    track.style.transform = `translateX(-${index * 100}%)`;
+  };
+
+  go(0, false);
+
+  setInterval(() => {
+    i += 1;
+    go(i, true);
+
+    if (i === slideCount - 1) {
+      setTimeout(() => {
+        i = 0;
+        go(0, false);
+      }, 650);
+    }
+  }, 4000);
+})();
+
+</script>
+</body>
+</html>
