@@ -14,12 +14,17 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Avenir', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #000;
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* Navigation - Minimal & Cinematic */
@@ -961,36 +966,148 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 20px 30px;
+                padding: 15px 20px;
             }
 
             nav ul {
-                gap: 30px;
+                gap: 15px;
             }
 
             nav a {
-                font-size: 10px;
+                font-size: 9px;
+                letter-spacing: 0.12em;
+            }
+
+            .logo-nav {
+                height: 24px;
             }
 
             .hero h1 {
-                font-size: 60px;
+                font-size: 48px;
             }
 
             .hero-content {
-                padding: 0 30px 60px 30px;
+                padding: 0 20px 50px 20px;
             }
 
             .content-wrapper {
-                padding: 0 30px;
+                padding: 0 20px;
+            }
+
+            /* Stats Section Mobile */
+            .stats-section {
+                padding: 50px 20px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                display: grid;
+                gap: 20px;
+            }
+
+            .stat-box {
+                padding: 20px 15px;
+            }
+
+            .stat-icon {
+                font-size: 36px;
+                margin-bottom: 12px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .stat-label {
+                font-size: 13px;
+            }
+
+            /* Approach Section Mobile */
+            .approach-section {
+                padding: 60px 20px;
+            }
+
+            .approach-section h2 {
+                font-size: 36px;
+            }
+
+            .approach-section p {
+                font-size: 16px;
+                max-width: 100%;
+            }
+
+            /* Focus Section Mobile */
+            .focus-section {
+                padding: 60px 20px;
+            }
+
+            .focus-section h2 {
+                font-size: 36px;
+                margin-bottom: 40px;
+            }
+
+            .focus-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .focus-item {
+                padding: 35px 25px;
+            }
+
+            /* Testimonials Mobile */
+            .testimonials-section {
+                padding: 60px 20px;
+            }
+
+            .testimonials-section h2 {
+                font-size: 36px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .testimonial {
+                padding: 30px 25px;
+            }
+
+            /* Contact Section Mobile */
+            .contact-section {
+                padding: 60px 20px;
+            }
+
+            .contact-section h2 {
+                font-size: 36px;
             }
 
             .statement-1-content,
             .video-statement-content {
                 flex-direction: column;
             }
+        }
 
-            .focus-grid {
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 8px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .stats-container {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .stat-number {
+                font-size: 32px;
             }
         }
 
