@@ -14,12 +14,17 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Avenir', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #000;
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* Navigation */
@@ -167,15 +172,28 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 15px 30px;
+                padding: 15px 20px;
             }
 
             nav ul {
-                gap: 30px;
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 9px;
+                letter-spacing: 0.12em;
+            }
+
+            .logo-nav {
+                height: 24px;
+            }
+
+            .social-icons {
+                display: none;
             }
 
             .hero-section {
-                padding: 100px 30px 50px;
+                padding: 100px 20px 50px;
             }
 
             .hero-info h1 {
@@ -187,7 +205,17 @@
             }
 
             .portfolio-grid {
-                padding: 40px 30px;
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 8px;
             }
         }
     
@@ -740,23 +768,36 @@
 
         @media (max-width: 768px) {
             .hero-section {
-                padding: 80px 30px 0;
+                padding: 80px 20px 0;
             }
 
             .grid-header, .portfolio-grid {
-                padding-left: 30px;
-                padding-right: 30px;
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
             .grid-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
+
+            footer {
+                padding: 30px 20px;
+            }
         }
 
         @media (max-width: 480px) {
             .grid-container {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-section {
+                padding: 80px 15px 0;
+            }
+
+            .grid-header, .portfolio-grid {
+                padding-left: 15px;
+                padding-right: 15px;
             }
         }
     </style>
