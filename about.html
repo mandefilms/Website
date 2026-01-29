@@ -399,22 +399,6 @@
             }
         }
     
-/* About page: story photos as a 2x2 grid, no hover/mouse effects */
-.photos-container {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 14px !important;
-  perspective: none !important;
-  width: min(520px, 100%) !important;
-}
-.photos-container .polaroid,
-.photos-container .polaroid:hover {
-  transform: none !important;
-  transition: none !important;
-}
-.photos-container .polaroid { position: relative !important; z-index: auto !important; }
-.photos-container img { width: 100%; height: auto; display: block; }
-
 /* About page: click-to-play video */
 .about-video {
   position: relative;
@@ -439,33 +423,128 @@
   z-index: 2;
 }
 
+/* About page: story section - text left, photos right */
+.story-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 80px !important;
+}
 
-/* About page: story section photos as a 2x2 grid (no stacking/hover), with normal paragraph width */
-.story-container { align-items: flex-start; gap: 60px; }
-.story-text { flex: 0 1 420px; max-width: 420px; }
+.story-text {
+  flex: 1 1 55% !important;
+  max-width: 650px !important;
+  order: 1 !important;
+}
+
 .photos-container {
-  flex: 0 0 auto;
-  width: min(520px, 100%);
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 14px !important;
-  perspective: none !important;
+  flex: 0 0 auto !important;
+  order: 2 !important;
+  width: 420px !important;
+  height: 480px !important;
+  position: relative !important;
+  display: block !important;
 }
-.photos-container .polaroid,
-.photos-container .polaroid:hover {
-  transform: none !important;
-  transition: none !important;
-}
-.photos-container .polaroid { position: relative !important; z-index: auto !important; }
-.photos-container img { width: 100%; height: auto; display: block; }
 
-@media (max-width: 900px) {
-  .story-container { flex-direction: column; gap: 30px; }
-  .story-text { max-width: 100%; }
-  .photos-container { width: 100%; }
+/* Polaroid pile effect - angled and overlapping */
+.photos-container .polaroid {
+  position: absolute !important;
+  background: #fff !important;
+  padding: 12px 12px 40px 12px !important;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 20px rgba(79, 179, 191, 0.1) !important;
+  border-radius: 2px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
+
+.photos-container .polaroid img {
+  width: 180px !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 1px !important;
+}
+
+/* Position each polaroid with unique angle and position */
+.photos-container .polaroid:nth-child(1) {
+  top: 20px !important;
+  left: 10px !important;
+  transform: rotate(-12deg) !important;
+  z-index: 4 !important;
+}
+
+.photos-container .polaroid:nth-child(2) {
+  top: 40px !important;
+  right: 20px !important;
+  left: auto !important;
+  transform: rotate(8deg) !important;
+  z-index: 3 !important;
+}
+
+.photos-container .polaroid:nth-child(3) {
+  bottom: 60px !important;
+  left: 50px !important;
+  top: auto !important;
+  transform: rotate(5deg) !important;
+  z-index: 2 !important;
+}
+
+.photos-container .polaroid:nth-child(4) {
+  bottom: 30px !important;
+  right: 40px !important;
+  top: auto !important;
+  left: auto !important;
+  transform: rotate(-6deg) !important;
+  z-index: 1 !important;
+}
+
+/* Hover effect for polaroids */
+.photos-container .polaroid:hover {
+  transform: rotate(0deg) scale(1.1) !important;
+  z-index: 10 !important;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 40px rgba(79, 179, 191, 0.2) !important;
+}
+
+@media (max-width: 1100px) {
+  .story-container {
+    flex-direction: column !important;
+    gap: 50px !important;
+  }
+  .story-text {
+    order: 2 !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+  .photos-container {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    height: 450px !important;
+    margin: 0 auto !important;
+  }
+}
+
 @media (max-width: 520px) {
-  .photos-container { grid-template-columns: 1fr !important; }
+  .photos-container {
+    height: 400px !important;
+  }
+  .photos-container .polaroid img {
+    width: 140px !important;
+  }
+  .photos-container .polaroid:nth-child(1) {
+    top: 10px !important;
+    left: 5px !important;
+  }
+  .photos-container .polaroid:nth-child(2) {
+    top: 30px !important;
+    right: 5px !important;
+  }
+  .photos-container .polaroid:nth-child(3) {
+    bottom: 50px !important;
+    left: 30px !important;
+  }
+  .photos-container .polaroid:nth-child(4) {
+    bottom: 20px !important;
+    right: 20px !important;
+  }
 }
 
 </style>
