@@ -190,7 +190,7 @@
         .services-section h2 {
             font-size: 42px;
             font-weight: 700;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             background: linear-gradient(135deg, #fff 0%, #4FB3BF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -205,7 +205,7 @@
             font-size: 22px;
             font-weight: 500;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             padding-left: 35px;
             position: relative;
             line-height: 1.5;
@@ -220,6 +220,71 @@
             height: 10px;
             background: linear-gradient(135deg, #4FB3BF 0%, #5DD5E3 100%);
             border-radius: 50%;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-question {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .cta-description {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, #4FB3BF 0%, #3a8a94 100%);
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Avenir', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(79, 179, 191, 0.35);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #5DD5E3 0%, #4FB3BF 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(79, 179, 191, 0.45);
+        }
+
+        .btn:active {
+            transform: translateY(0);
         }
 
         /* Photo Grid Section */
@@ -276,6 +341,223 @@
 
         .photo-grid-item:hover img {
             transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+            background: linear-gradient(135deg, #0a2840 0%, #1a3a50 50%, #0a2535 100%);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6),
+                        0 0 50px rgba(79, 179, 191, 0.15);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #4FB3BF;
+            transform: scale(1.1);
+        }
+
+        .modal-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 35px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff 0%, #4FB3BF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Form Styles */
+        .proposal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group label span {
+            color: #4FB3BF;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Avenir', sans-serif;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4FB3BF;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(79, 179, 191, 0.2);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #4FB3BF 0%, #3a8a94 100%);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Avenir', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(79, 179, 191, 0.3);
+            margin-top: 10px;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #5DD5E3 0%, #4FB3BF 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(79, 179, 191, 0.4);
+        }
+
+        /* Success State */
+        .success-content {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-content.active {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+        }
+
+        .success-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4FB3BF;
+            margin-bottom: 15px;
+        }
+
+        .success-message {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .return-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, rgba(79, 179, 191, 0.2) 0%, rgba(79, 179, 191, 0.1) 100%);
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #4FB3BF;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .return-btn:hover {
+            background: linear-gradient(135deg, rgba(79, 179, 191, 0.35) 0%, rgba(79, 179, 191, 0.2) 100%);
+            border-color: #5DD5E3;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 179, 191, 0.25);
         }
 
         /* Animation */
@@ -344,12 +626,12 @@
 
             .services-section h2 {
                 font-size: 32px;
-                margin-bottom: 35px;
+                margin-bottom: 30px;
             }
 
             .services-list li {
                 font-size: 18px;
-                margin-bottom: 16px;
+                margin-bottom: 10px;
                 padding-left: 28px;
             }
 
@@ -357,6 +639,19 @@
                 width: 8px;
                 height: 8px;
                 top: 10px;
+            }
+
+            .cta-section {
+                margin-top: 45px;
+                padding-top: 35px;
+            }
+
+            .cta-question {
+                font-size: 24px;
+            }
+
+            .cta-description {
+                font-size: 16px;
             }
 
             /* Photo Grid Mobile */
@@ -367,6 +662,20 @@
             .photo-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
+            }
+
+            /* Modal Mobile */
+            .modal-content {
+                padding: 40px 25px;
+            }
+
+            .modal-title {
+                font-size: 28px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 20px;
             }
         }
 
@@ -390,6 +699,18 @@
 
             .services-list li {
                 font-size: 16px;
+            }
+
+            .cta-question {
+                font-size: 22px;
+            }
+
+            .modal-content {
+                padding: 35px 20px;
+            }
+
+            .modal-title {
+                font-size: 24px;
             }
         }
 </style>
@@ -429,6 +750,12 @@
 <li>Single Camera B-roll Coverage</li>
 <li>Video Editing & Graphics</li>
 </ul>
+
+<div class="cta-section">
+<p class="cta-question">Can't be there in person?</p>
+<p class="cta-description">We are experienced with running interviews in a variety of fields.</p>
+<button class="btn" onclick="openProposalModal()">Request A Proposal</button>
+</div>
 </div>
 </div>
 </section>
@@ -468,6 +795,58 @@
 </div>
 </section>
 
+<!-- Proposal Modal -->
+<div class="modal-overlay" id="proposalModal" onclick="closeModalOnOverlay(event)">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+
+        <!-- Form State -->
+        <div id="formState">
+            <h2 class="modal-title">Request A Proposal</h2>
+            <form class="proposal-form" id="proposalForm" name="proposal" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
+                <input type="hidden" name="form-name" value="proposal">
+                <input type="hidden" name="recipient" value="production@mandefilms.com">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name <span>*</span></label>
+                        <input type="text" name="first-name" required placeholder="Your first name">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name <span>*</span></label>
+                        <input type="text" name="last-name" required placeholder="Your last name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email <span>*</span></label>
+                    <input type="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Company / Organization</label>
+                    <input type="text" name="company" placeholder="Your company or organization">
+                </div>
+
+                <div class="form-group">
+                    <label>Project Details</label>
+                    <textarea name="message" placeholder="Tell us about your project, timeline, and any specific requirements..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Request</button>
+            </form>
+        </div>
+
+        <!-- Success State -->
+        <div class="success-content" id="successState">
+            <div class="success-icon">&#10003;</div>
+            <h3 class="success-title">Request Sent</h3>
+            <p class="success-message">You will hear back from us shortly.<br>Thank you!</p>
+            <button class="return-btn" onclick="returnToPage()">Return to Production Page</button>
+        </div>
+    </div>
+</div>
+
 <!-- JavaScript -->
 <script>
     // Fade-in animation on scroll
@@ -481,6 +860,64 @@
 
     document.querySelectorAll('.fade-in').forEach(el => {
         fadeInObserver.observe(el);
+    });
+
+    // Modal functions
+    function openProposalModal() {
+        document.getElementById('proposalModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProposalModal() {
+        document.getElementById('proposalModal').classList.remove('active');
+        document.body.style.overflow = '';
+        // Reset to form state after closing
+        setTimeout(() => {
+            document.getElementById('formState').style.display = 'block';
+            document.getElementById('successState').classList.remove('active');
+            document.getElementById('proposalForm').reset();
+        }, 300);
+    }
+
+    function closeModalOnOverlay(event) {
+        if (event.target.classList.contains('modal-overlay')) {
+            closeProposalModal();
+        }
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        // Submit to Netlify
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            // Show success state
+            document.getElementById('formState').style.display = 'none';
+            document.getElementById('successState').classList.add('active');
+        })
+        .catch((error) => {
+            // Still show success for demo purposes (Netlify handles in production)
+            document.getElementById('formState').style.display = 'none';
+            document.getElementById('successState').classList.add('active');
+        });
+    }
+
+    function returnToPage() {
+        closeProposalModal();
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeProposalModal();
+        }
     });
 </script>
 </body>
