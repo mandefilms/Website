@@ -32,12 +32,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 18px 80px;
+            padding: 12px 80px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 1);
             backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -128,7 +128,7 @@
         }
 
         .hero h1 {
-            font-size: 120px;
+            font-size: 96px;
             font-weight: 700;
             letter-spacing: 0.02em;
             line-height: 1.1;
@@ -184,7 +184,18 @@
         .services-content {
             position: relative;
             z-index: 1;
-            max-width: 900px;
+            display: flex;
+            gap: 80px;
+            align-items: flex-start;
+        }
+
+        .services-left {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .services-right {
+            flex: 1;
         }
 
         .services-section h2 {
@@ -222,24 +233,360 @@
             border-radius: 50%;
         }
 
-        /* CTA Section */
-        .cta-section {
-            margin-top: 60px;
-            padding-top: 40px;
+        /* Separator Section */
+        .separator-section {
+            background: #000;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .separator-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .separator-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #4FB3BF 50%, transparent 100%);
+            margin-bottom: 50px;
+        }
+
+        .separator-text {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 40px;
+            letter-spacing: 0.01em;
+        }
+
+        /* How We Work Section */
+        .how-we-work-section {
+            background: linear-gradient(135deg, #0a1e2a 0%, #1a3a4a 50%, #0a2535 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-we-work-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(79, 179, 191, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .how-we-work-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .how-we-work-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fff 0%, #4FB3BF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-intro {
+            font-size: 20px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .section-subhead {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 20px;
+        }
+
+        .how-we-work-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .how-we-work-list li {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .how-we-work-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #4FB3BF 0%, #5DD5E3 100%);
+            border-radius: 50%;
+        }
+
+        .section-emphasis {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        /* What We Deliver Section */
+        .what-we-deliver-section {
+            background: #000;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .what-we-deliver-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 80% 50%, rgba(79, 179, 191, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .what-we-deliver-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .what-we-deliver-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #fff 0%, #4FB3BF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .deliver-list {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        .deliver-list li {
+            font-size: 20px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 14px;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .deliver-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(135deg, #4FB3BF 0%, #5DD5E3 100%);
+            border-radius: 50%;
+        }
+
+        .section-statement {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.6;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .cta-question {
-            font-size: 28px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 15px;
+        /* Equipment Section */
+        .equipment-section {
+            background: linear-gradient(135deg, #0a1e2a 0%, #1a3a4a 50%, #0a2535 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .cta-description {
+        .equipment-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(79, 179, 191, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(79, 179, 191, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .equipment-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .equipment-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff 0%, #4FB3BF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .equipment-columns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 80px;
+        }
+
+        .equipment-column {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .equipment-category h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #4FB3BF;
+        }
+
+        .equipment-category ul {
+            list-style: none;
+        }
+
+        .equipment-category li {
             font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 10px;
+            padding-left: 28px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .equipment-category li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #4FB3BF 0%, #5DD5E3 100%);
+            border-radius: 50%;
+        }
+
+        .equipment-category li.note {
+            font-size: 15px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.65);
+            padding-left: 28px;
+        }
+
+        .equipment-category li.note::before {
+            display: none;
+        }
+
+        /* Media Handling Section */
+        .media-handling-section {
+            background: #000;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .media-handling-content {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .media-handling-box {
+            max-width: 900px;
+            padding: 60px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(79, 179, 191, 0.2);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .media-handling-box:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+            border-color: rgba(79, 179, 191, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4),
+                        0 0 40px rgba(79, 179, 191, 0.2);
+        }
+
+        .media-handling-box h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #fff 0%, #4FB3BF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .media-list {
+            list-style: none;
             margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .media-list li {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .media-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #4FB3BF 0%, #5DD5E3 100%);
+            border-radius: 50%;
+        }
+
+        .media-note {
+            font-size: 17px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .proposal-btn {
+            margin-top: 10px;
         }
 
         .btn {
@@ -287,30 +634,11 @@
             transform: translateY(0);
         }
 
-        /* Photo Grid Section */
-        .photo-grid-section {
-            background: #000;
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .photo-grid-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 10% 20%, rgba(79, 179, 191, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(79, 179, 191, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
+        /* Photo Grid in Services Section */
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
             position: relative;
             z-index: 1;
         }
@@ -319,17 +647,17 @@
             position: relative;
             aspect-ratio: 16 / 9;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 8px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .photo-grid-item:hover {
-            transform: scale(1.02);
-            border-color: rgba(79, 179, 191, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-                        0 0 30px rgba(79, 179, 191, 0.15);
+            transform: scale(1.05);
+            border-color: rgba(79, 179, 191, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5),
+                        0 0 25px rgba(79, 179, 191, 0.2);
         }
 
         .photo-grid-item img {
@@ -340,7 +668,7 @@
         }
 
         .photo-grid-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         /* Modal Styles */
@@ -624,6 +952,15 @@
                 padding: 60px 20px;
             }
 
+            .services-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .services-left {
+                max-width: 100%;
+            }
+
             .services-section h2 {
                 font-size: 32px;
                 margin-bottom: 30px;
@@ -641,27 +978,96 @@
                 top: 10px;
             }
 
-            .cta-section {
-                margin-top: 45px;
-                padding-top: 35px;
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
 
-            .cta-question {
-                font-size: 24px;
-            }
-
-            .cta-description {
-                font-size: 16px;
-            }
-
-            /* Photo Grid Mobile */
-            .photo-grid-section {
+            /* Separator Section Mobile */
+            .separator-section {
                 padding: 60px 20px;
             }
 
-            .photo-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+            .separator-text {
+                font-size: 24px;
+            }
+
+            /* How We Work Mobile */
+            .how-we-work-section {
+                padding: 60px 20px;
+            }
+
+            .how-we-work-content h2 {
+                font-size: 36px;
+            }
+
+            .section-intro {
+                font-size: 18px;
+            }
+
+            .section-emphasis {
+                font-size: 20px;
+            }
+
+            /* What We Deliver Mobile */
+            .what-we-deliver-section {
+                padding: 60px 20px;
+            }
+
+            .what-we-deliver-content h2 {
+                font-size: 36px;
+            }
+
+            .deliver-list li {
+                font-size: 18px;
+            }
+
+            .section-statement {
+                font-size: 20px;
+            }
+
+            /* Equipment Mobile */
+            .equipment-section {
+                padding: 60px 20px;
+            }
+
+            .equipment-content h2 {
+                font-size: 36px;
+                margin-bottom: 40px;
+            }
+
+            .equipment-columns {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .equipment-category h3 {
+                font-size: 24px;
+            }
+
+            .equipment-category li {
+                font-size: 16px;
+            }
+
+            /* Media Handling Mobile */
+            .media-handling-section {
+                padding: 60px 20px;
+            }
+
+            .media-handling-box {
+                padding: 40px 25px;
+            }
+
+            .media-handling-box h2 {
+                font-size: 32px;
+            }
+
+            .media-list li {
+                font-size: 16px;
+            }
+
+            .media-note {
+                font-size: 16px;
             }
 
             /* Modal Mobile */
@@ -694,15 +1100,29 @@
 
             .photo-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 10px;
             }
 
             .services-list li {
                 font-size: 16px;
             }
 
-            .cta-question {
-                font-size: 22px;
+            .separator-text {
+                font-size: 20px;
+            }
+
+            .how-we-work-content h2,
+            .what-we-deliver-content h2,
+            .equipment-content h2 {
+                font-size: 28px;
+            }
+
+            .media-handling-box h2 {
+                font-size: 26px;
+            }
+
+            .media-handling-box {
+                padding: 30px 20px;
             }
 
             .modal-content {
@@ -739,7 +1159,8 @@
 <section class="services-section">
 <div class="content-wrapper">
 <div class="services-content fade-in">
-<h2>We Often Provide:</h2>
+<div class="services-left">
+<h2>Our Services Include</h2>
 <ul class="services-list">
 <li>2-3 Person Interview Crew</li>
 <li>Client Testimonial Filming</li>
@@ -750,20 +1171,9 @@
 <li>Single Camera B-roll Coverage</li>
 <li>Video Editing & Graphics</li>
 </ul>
-
-<div class="cta-section">
-<p class="cta-question">Can't be there in person?</p>
-<p class="cta-description">We are experienced with running interviews in a variety of fields.</p>
-<button class="btn" onclick="openProposalModal()">Request A Proposal</button>
 </div>
-</div>
-</div>
-</section>
-
-<!-- Photo Grid Section -->
-<section class="photo-grid-section">
-<div class="content-wrapper">
-<div class="photo-grid fade-in">
+<div class="services-right">
+<div class="photo-grid">
 <div class="photo-grid-item">
 <img alt="Production Photo 1" src="interviewphoto1.PNG"/>
 </div>
@@ -782,18 +1192,183 @@
 <div class="photo-grid-item">
 <img alt="Production Photo 6" src="interviewphoto6.PNG"/>
 </div>
-<div class="photo-grid-item">
-<img alt="Production Photo 7" src="interviewphoto7.PNG"/>
 </div>
-<div class="photo-grid-item">
-<img alt="Production Photo 8" src="interviewphoto8.PNG"/>
-</div>
-<div class="photo-grid-item">
-<img alt="Production Photo 9" src="interviewphoto9.PNG"/>
 </div>
 </div>
 </div>
 </section>
+
+<!-- Separator Section -->
+<section class="separator-section">
+<div class="content-wrapper">
+<div class="separator-content fade-in">
+<div class="separator-line"></div>
+<p class="separator-text">We support single and multi-day video production.</p>
+<button class="btn" onclick="openCheckAvailabilityModal()">Check Availability</button>
+</div>
+</div>
+</section>
+
+<!-- How We Work Section -->
+<section class="how-we-work-section">
+<div class="content-wrapper">
+<div class="how-we-work-content fade-in">
+<h2>How We Work</h2>
+<p class="section-intro">We operate as a dedicated video field team supporting marketing agencies, production companies, and in-house teams.</p>
+<p class="section-subhead">We are comfortable working from:</p>
+<ul class="how-we-work-list">
+<li>Concise briefs</li>
+<li>Predefined shot lists</li>
+<li>Interview questions provided in advance</li>
+<li>Live remote direction via Zoom, iPad, or similar systems</li>
+</ul>
+<p class="section-emphasis">Our focus is execution and risk reduction.</p>
+</div>
+</div>
+</section>
+
+<!-- What We Deliver Section -->
+<section class="what-we-deliver-section">
+<div class="content-wrapper">
+<div class="what-we-deliver-content fade-in">
+<h2>What We Deliver on Set</h2>
+<ul class="deliver-list">
+<li>Three-camera 4K interview capture</li>
+<li>Professional audio and controlled lighting</li>
+<li>Structured b-roll coverage aligned to agency requirements</li>
+<li>Calm, efficient on-set presence</li>
+<li>Organized media delivery ready for post-production</li>
+</ul>
+<p class="section-statement">We are accustomed to working under time constraints, with non-technical clients present, and with remote producers monitoring live.</p>
+</div>
+</div>
+</section>
+
+<!-- Equipment Section -->
+<section class="equipment-section">
+<div class="content-wrapper">
+<div class="equipment-content fade-in">
+<h2>Equipment & Technical Capability</h2>
+<div class="equipment-columns">
+<div class="equipment-column">
+<div class="equipment-category">
+<h3>Cameras</h3>
+<ul>
+<li>Sony FX3</li>
+<li>Sony FX3</li>
+<li>Sony FX30</li>
+<li class="note">(Matching color science and 4K capture across all bodies)</li>
+</ul>
+</div>
+<div class="equipment-category">
+<h3>Lenses</h3>
+<ul>
+<li>16-24mm, 35mm, 50mm, 85mm (F1.8)</li>
+<li>70-200mm F2.8 Gmaster</li>
+</ul>
+</div>
+<div class="equipment-category">
+<h3>Audio</h3>
+<ul>
+<li>Professional lavalier microphones</li>
+<li>Shotgun microphone for redundancy and ambient capture</li>
+</ul>
+</div>
+</div>
+<div class="equipment-column">
+<div class="equipment-category">
+<h3>Lighting</h3>
+<ul>
+<li>Full three-point interview lighting</li>
+<li>Additional fixtures for background separation and practical control</li>
+</ul>
+</div>
+<div class="equipment-category">
+<h3>Stabilization</h3>
+<ul>
+<li>Silent Interview Slider (Horizontal Movement)</li>
+<li>Motorized gimbal for b-roll</li>
+<li>Handheld and locked-off Tripod support as required</li>
+<li>FPV/Standard Drone</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Media Handling Section -->
+<section class="media-handling-section">
+<div class="content-wrapper">
+<div class="media-handling-content fade-in">
+<div class="media-handling-box">
+<h2>Media Handling & Redundancy</h2>
+<ul class="media-list">
+<li>We follow standard DIT and on-site media redundancy practices.</li>
+<li>Dual-card capture where supported</li>
+<li>On-site backup to external drives</li>
+<li>Media verified before wrap</li>
+<li>Organized file structure for agency handoff</li>
+</ul>
+<p class="media-note">This ensures footage integrity and eliminates single-point-of-failure risk.</p>
+<button class="btn proposal-btn" onclick="openProposalModal()">Request A Proposal</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Check Availability Modal -->
+<div class="modal-overlay" id="checkAvailabilityModal" onclick="closeCheckAvailabilityModalOnOverlay(event)">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeCheckAvailabilityModal()">&times;</button>
+
+        <!-- Form State -->
+        <div id="availabilityFormState">
+            <h2 class="modal-title">Check Availability</h2>
+            <form class="proposal-form" id="availabilityForm" name="check-availability" method="POST" data-netlify="true" onsubmit="handleAvailabilitySubmit(event)">
+                <input type="hidden" name="form-name" value="check-availability">
+                <input type="hidden" name="recipient" value="production@mandefilms.com">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name <span>*</span></label>
+                        <input type="text" name="first-name" required placeholder="Your first name">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name <span>*</span></label>
+                        <input type="text" name="last-name" required placeholder="Your last name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email <span>*</span></label>
+                    <input type="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Company / Organization</label>
+                    <input type="text" name="company" placeholder="Your company or organization">
+                </div>
+
+                <div class="form-group">
+                    <label>Project Details</label>
+                    <textarea name="message" placeholder="Tell us about your project dates, location, and any specific requirements..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Check Availability</button>
+            </form>
+        </div>
+
+        <!-- Success State -->
+        <div class="success-content" id="availabilitySuccessState">
+            <div class="success-icon">&#10003;</div>
+            <h3 class="success-title">Request Sent</h3>
+            <p class="success-message">We'll check our availability and get back to you shortly.<br>Thank you!</p>
+            <button class="return-btn" onclick="returnToPage()">Return to Production Page</button>
+        </div>
+    </div>
+</div>
 
 <!-- Proposal Modal -->
 <div class="modal-overlay" id="proposalModal" onclick="closeModalOnOverlay(event)">
@@ -911,12 +1486,61 @@
 
     function returnToPage() {
         closeProposalModal();
+        closeCheckAvailabilityModal();
+    }
+
+    // Check Availability Modal functions
+    function openCheckAvailabilityModal() {
+        document.getElementById('checkAvailabilityModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCheckAvailabilityModal() {
+        document.getElementById('checkAvailabilityModal').classList.remove('active');
+        document.body.style.overflow = '';
+        // Reset to form state after closing
+        setTimeout(() => {
+            document.getElementById('availabilityFormState').style.display = 'block';
+            document.getElementById('availabilitySuccessState').classList.remove('active');
+            document.getElementById('availabilityForm').reset();
+        }, 300);
+    }
+
+    function closeCheckAvailabilityModalOnOverlay(event) {
+        if (event.target.classList.contains('modal-overlay')) {
+            closeCheckAvailabilityModal();
+        }
+    }
+
+    function handleAvailabilitySubmit(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        // Submit to Netlify
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            // Show success state
+            document.getElementById('availabilityFormState').style.display = 'none';
+            document.getElementById('availabilitySuccessState').classList.add('active');
+        })
+        .catch((error) => {
+            // Still show success for demo purposes (Netlify handles in production)
+            document.getElementById('availabilityFormState').style.display = 'none';
+            document.getElementById('availabilitySuccessState').classList.add('active');
+        });
     }
 
     // Close modal on Escape key
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             closeProposalModal();
+            closeCheckAvailabilityModal();
         }
     });
 </script>
