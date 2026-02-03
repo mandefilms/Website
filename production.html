@@ -32,7 +32,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 12px 80px;
+            padding: 12px 120px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -124,7 +124,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 0 80px 100px 80px;
+            padding: 0 120px 100px 120px;
         }
 
         .hero h1 {
@@ -157,7 +157,7 @@
         .content-wrapper {
             max-width: 1800px;
             margin: 0 auto;
-            padding: 0 80px;
+            padding: 0 120px;
         }
 
         /* Services Section */
@@ -217,7 +217,7 @@
             font-weight: 500;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 12px;
-            padding-left: 35px;
+            padding-left: 45px;
             position: relative;
             line-height: 1.5;
         }
@@ -303,6 +303,7 @@
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 35px;
             line-height: 1.6;
+            padding-left: 10px;
         }
 
         .section-subhead {
@@ -310,6 +311,7 @@
             font-weight: 600;
             color: rgba(255, 255, 255, 0.85);
             margin-bottom: 20px;
+            padding-left: 10px;
         }
 
         .how-we-work-list {
@@ -322,7 +324,7 @@
             font-weight: 500;
             color: rgba(255, 255, 255, 0.85);
             margin-bottom: 12px;
-            padding-left: 30px;
+            padding-left: 40px;
             position: relative;
             line-height: 1.5;
         }
@@ -343,6 +345,7 @@
             font-weight: 700;
             color: #fff;
             margin-top: 40px;
+            padding-left: 10px;
         }
 
         /* What We Deliver Section */
@@ -390,7 +393,7 @@
             font-weight: 500;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 14px;
-            padding-left: 35px;
+            padding-left: 45px;
             position: relative;
             line-height: 1.6;
         }
@@ -412,6 +415,7 @@
             color: #fff;
             line-height: 1.6;
             padding-top: 30px;
+            padding-left: 10px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -480,7 +484,7 @@
             font-weight: 500;
             color: rgba(255, 255, 255, 0.85);
             margin-bottom: 10px;
-            padding-left: 28px;
+            padding-left: 38px;
             position: relative;
             line-height: 1.5;
         }
@@ -561,7 +565,7 @@
             font-weight: 500;
             color: rgba(255, 255, 255, 0.85);
             margin-bottom: 12px;
-            padding-left: 30px;
+            padding-left: 40px;
             position: relative;
             line-height: 1.6;
         }
@@ -637,8 +641,18 @@
         /* Photo Grid in Services Section */
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Photo Grid for How We Work and What We Deliver */
+        .photo-grid-small {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 40px;
             position: relative;
             z-index: 1;
         }
@@ -919,7 +933,7 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 15px 20px;
+                padding: 15px 40px;
             }
 
             nav ul {
@@ -940,16 +954,16 @@
             }
 
             .hero-content {
-                padding: 0 20px 50px 20px;
+                padding: 0 40px 50px 40px;
             }
 
             .content-wrapper {
-                padding: 0 20px;
+                padding: 0 40px;
             }
 
             /* Services Section Mobile */
             .services-section {
-                padding: 60px 20px;
+                padding: 60px 40px;
             }
 
             .services-content {
@@ -985,7 +999,7 @@
 
             /* Separator Section Mobile */
             .separator-section {
-                padding: 60px 20px;
+                padding: 60px 40px;
             }
 
             .separator-text {
@@ -994,7 +1008,7 @@
 
             /* How We Work Mobile */
             .how-we-work-section {
-                padding: 60px 20px;
+                padding: 60px 40px;
             }
 
             .how-we-work-content h2 {
@@ -1011,7 +1025,7 @@
 
             /* What We Deliver Mobile */
             .what-we-deliver-section {
-                padding: 60px 20px;
+                padding: 60px 40px;
             }
 
             .what-we-deliver-content h2 {
@@ -1028,7 +1042,7 @@
 
             /* Equipment Mobile */
             .equipment-section {
-                padding: 60px 20px;
+                padding: 60px 40px;
             }
 
             .equipment-content h2 {
@@ -1051,7 +1065,7 @@
 
             /* Media Handling Mobile */
             .media-handling-section {
-                padding: 60px 20px;
+                padding: 60px 40px;
             }
 
             .media-handling-box {
@@ -1175,22 +1189,49 @@
 <div class="services-right">
 <div class="photo-grid">
 <div class="photo-grid-item">
-<img alt="Production Photo 1" src="interviewphoto1.PNG"/>
+<img alt="Production Photo 1" src="Photo (1).png"/>
 </div>
 <div class="photo-grid-item">
-<img alt="Production Photo 2" src="interviewphoto2.PNG"/>
+<img alt="Production Photo 2" src="Photo (2).png"/>
 </div>
 <div class="photo-grid-item">
-<img alt="Production Photo 3" src="interviewphoto3.PNG"/>
+<img alt="Production Photo 3" src="Photo (3).png"/>
 </div>
 <div class="photo-grid-item">
-<img alt="Production Photo 4" src="interviewphoto4.PNG"/>
+<img alt="Production Photo 4" src="Photo (4).png"/>
 </div>
 <div class="photo-grid-item">
-<img alt="Production Photo 5" src="interviewphoto5.PNG"/>
+<img alt="Production Photo 5" src="Photo (5).png"/>
 </div>
 <div class="photo-grid-item">
-<img alt="Production Photo 6" src="interviewphoto6.PNG"/>
+<img alt="Production Photo 6" src="Photo (6).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 7" src="Photo (7).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 8" src="Photo (8).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 9" src="Photo (9).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 10" src="Photo (10).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 11" src="Photo (11).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 12" src="Photo (12).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 13" src="Photo (13).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 14" src="Photo (14).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 15" src="Photo (15).png"/>
 </div>
 </div>
 </div>
@@ -1223,6 +1264,26 @@
 <li>Live remote direction via Zoom, iPad, or similar systems</li>
 </ul>
 <p class="section-emphasis">Our focus is execution and risk reduction.</p>
+<div class="photo-grid-small">
+<div class="photo-grid-item">
+<img alt="Production Photo 16" src="Photo (16).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 17" src="Photo (17).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 18" src="Photo (18).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 19" src="Photo (19).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 20" src="Photo (20).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 21" src="Photo (21).png"/>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1240,6 +1301,26 @@
 <li>Organized media delivery ready for post-production</li>
 </ul>
 <p class="section-statement">We are accustomed to working under time constraints, with non-technical clients present, and with remote producers monitoring live.</p>
+<div class="photo-grid-small">
+<div class="photo-grid-item">
+<img alt="Production Photo 22" src="Photo (22).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 23" src="Photo (23).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 24" src="Photo (24).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 25" src="Photo (25).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 26" src="Photo (26).png"/>
+</div>
+<div class="photo-grid-item">
+<img alt="Production Photo 27" src="Photo (27).png"/>
+</div>
+</div>
 </div>
 </div>
 </section>
