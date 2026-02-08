@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M&E Films | AI Workflow Audit for Video & Media Teams</title>
+  <meta name="description" content="Practical AI workflow audits for video production, media, photography, and content teams. Identify where AI saves time—without adding complexity." />
+  <style>
+    :root{
+      --bg:#0b0d12;
+      --card:#121622;
+      --text:#e9eefc;
+      --muted:#b7c0da;
+      --line:rgba(255,255,255,.10);
+      --accent:#7aa7ff;
+      --accent2:#9bffcf;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1040px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: radial-gradient(1000px 600px at 20% 10%, rgba(122,167,255,.18), transparent 60%),
+                  radial-gradient(900px 500px at 85% 20%, rgba(155,255,207,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
+    .topbar{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:10px 0 18px; border-bottom:1px solid var(--line);
+    }
+    .brand{display:flex; gap:10px; align-items:center; text-decoration:none}
+    .mark{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, rgba(122,167,255,.95), rgba(155,255,207,.85));
+      box-shadow: var(--shadow);
+    }
+    .brand b{letter-spacing:.2px}
+    .nav a{opacity:.85; text-decoration:none; margin-left:14px}
+    .nav a:hover{opacity:1}
+    .hero{padding:44px 0 18px; display:grid; grid-template-columns: 1.2fr .8fr; gap:22px; align-items:start}
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} }
+    h1{font-size:44px; line-height:1.05; margin:0 0 14px}
+    @media (max-width:560px){ h1{font-size:34px} }
+    .sub{
+      font-size:18px; color:var(--muted); margin:0 0 22px; max-width:52ch;
+    }
+    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 18px}
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:8px 10px; border-radius:999px;
+      font-size:13px; color:var(--muted);
+    }
+    .ctaRow{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(122,167,255,.95), rgba(155,255,207,.70));
+      color:#0a0f1b;
+      border-color: transparent;
+      font-weight:700;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .card{
+      background: rgba(18,22,34,.82);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .kpi{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .kpi div{padding:12px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.03)}
+    .kpi b{display:block; font-size:16px}
+    .kpi span{display:block; color:var(--muted); font-size:13px; margin-top:4px}
+    section{margin-top:22px}
+    h2{font-size:22px; margin:0 0 12px}
+    p{margin:0 0 12px}
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    @media (max-width:900px){ .grid3{grid-template-columns:1fr} }
+    .grid2{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    @media (max-width:900px){ .grid2{grid-template-columns:1fr} }
+    ul{margin:10px 0 0 18px; color:var(--muted)}
+    li{margin:8px 0}
+    .muted{color:var(--muted)}
+    .divider{height:1px; background:var(--line); margin:18px 0}
+    .tag{
+      display:inline-block; font-size:12px; color:#0a0f1b;
+      padding:6px 10px; border-radius:999px;
+      background: rgba(155,255,207,.85);
+      margin-bottom:10px;
+    }
+    .faq details{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 14px;
+      background: rgba(255,255,255,.03);
+      margin:10px 0;
+    }
+    .faq summary{cursor:pointer; font-weight:650}
+    .foot{
+      margin-top:34px; padding-top:18px; border-top:1px solid var(--line);
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      color:var(--muted); font-size:13px;
+    }
+    code.inline{background:rgba(255,255,255,.06); border:1px solid var(--line); padding:2px 6px; border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="/">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <b>M&E Films</b><br>
+          <span class="muted" style="font-size:12px">AI Workflow Consulting Division</span>
+        </div>
+      </a>
+      <div class="nav">
+        <a href="/work">Work</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div>
+        <div class="tag">For video, media, photography & content teams</div>
+        <h1>AI Workflow Audit<br>that actually saves time</h1>
+        <p class="sub">
+          We help production companies and content teams identify where AI reduces friction
+          (logging, rough cuts, social derivatives, asset organization, image gen) — without breaking your existing pipeline.
+        </p>
+
+        <div class="pillrow">
+          <div class="pill">No hype, practical gains</div>
+          <div class="pill">Remote-friendly (Zoom + sample project)</div>
+          <div class="pill">Clear roadmap + documentation</div>
+          <div class="pill">Optional implementation sprint</div>
+        </div>
+
+        <div class="ctaRow">
+          <!-- Replace the links below with your real booking/contact destination -->
+          <a class="btn primary" href="/contact">Book a 20-min fit call</a>
+          <a class="btn" href="mailto:hello@mandefilms.com?subject=AI%20Workflow%20Audit%20Inquiry">Email us</a>
+        </div>
+
+        <p class="muted" style="margin-top:12px">
+          We’re early adopters in this space — we test tools continuously so your team doesn’t have to.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-top:0">What you get</h2>
+        <div class="kpi">
+          <div>
+            <b>Workflow map</b>
+            <span>Where time is actually being lost</span>
+          </div>
+          <div>
+            <b>AI opportunities</b>
+            <span>What to automate vs what to leave alone</span>
+          </div>
+          <div>
+            <b>Tool stack</b>
+            <span>Specific recommendations & setup notes</span>
+          </div>
+          <div>
+            <b>Implementation plan</b>
+            <span>Prioritized steps + ROI expectations</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p class="muted" style="margin:0">
+          Typical focus areas: transcription/logging, selects, rough cuts, captioning,
+          short-form versioning, client review loops, asset search, image generation workflows.
+        </p>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>Who this is for</h2>
+      <div class="grid3">
+        <div>
+          <b>Production companies</b>
+          <ul>
+            <li>Editing bottlenecks & long turnarounds</li>
+            <li>Repetitive short-form deliverables</li>
+            <li>Footage logging and asset chaos</li>
+          </ul>
+        </div>
+        <div>
+          <b>In-house content teams</b>
+          <ul>
+            <li>Need more output without hiring</li>
+            <li>Review cycles dragging projects</li>
+            <li>Too many tools, not enough process</li>
+          </ul>
+        </div>
+        <div>
+          <b>New founders building content</b>
+          <ul>
+            <li>Want an AI-ready workflow from day one</li>
+            <li>Need consistent content cadence</li>
+            <li>Prefer a simple, reliable stack</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid2">
+      <div class="card">
+        <h2>Process: Stage 1 → Stage 5</h2>
+        <p class="muted">You can choose one-and-done, or continue into implementation + ongoing optimization.</p>
+        <ol class="muted" style="margin:12px 0 0 18px">
+          <li><b>Stage 1 — Fit call (20 min)</b>: confirm goals, team size, pipeline, and constraints.</li>
+          <li><b>Stage 2 — Audit intake</b>: 1–2 stakeholder interviews + (optional) sample project walkthrough.</li>
+          <li><b>Stage 3 — Workflow map + opportunities</b>: identify friction, quick wins, and “don’t-touch” areas.</li>
+          <li><b>Stage 4 — Recommendation pack</b>: tool stack + prioritized plan + expected impact.</li>
+          <li><b>Stage 5 — Implementation & optimization</b>: sprint setup, training, documentation, and iterative improvements.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h2>Packages</h2>
+        <p><b>AI Workflow Audit</b><br><span class="muted">A focused, practical roadmap.</span></p>
+        <p class="muted" style="margin-top:8px">
+          Includes: workflow mapping, opportunity list, recommended tool stack, prioritized implementation plan,
+          and a handoff session.
+        </p>
+        <p style="margin-top:10px"><b>$1,250</b> <span class="muted">(fixed price)</span></p>
+
+        <div class="divider"></div>
+
+        <p><b>Implementation Sprint (optional)</b><br><span class="muted">We set it up with you.</span></p>
+        <p class="muted" style="margin-top:8px">
+          2–3 weeks. Includes setup, light automation, templates, documentation, and team training.
+        </p>
+        <p style="margin-top:10px"><b>$3,500–$7,500</b> <span class="muted">(scope-based)</span></p>
+
+        <div class="divider"></div>
+
+        <p><b>Ongoing Optimization (optional)</b><br><span class="muted">Stay current without chasing tools.</span></p>
+        <p style="margin-top:10px"><b>$950–$2,500/mo</b> <span class="muted">(depending on cadence)</span></p>
+      </div>
+    </section>
+
+    <section class="card faq">
+      <h2>FAQ</h2>
+
+      <details>
+        <summary>We don’t want “AI chaos.” Will this disrupt our existing pipeline?</summary>
+        <p class="muted">
+          No. The audit is specifically designed to keep what already works, remove friction,
+          and only introduce tools where they measurably reduce time or rework.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you build custom models?</summary>
+        <p class="muted">
+          Usually not for this stage. Most teams get strong ROI from tooling + workflow design.
+          If a custom build becomes necessary, we’ll recommend it transparently.
+        </p>
+      </details>
+
+      <details>
+        <summary>We’re early to AI — is that okay?</summary>
+        <p class="muted">
+          Perfect. We’ll help you avoid the common trap of adding tools without process.
+          You’ll end with a simple stack your team can actually maintain.
+        </p>
+      </details>
+
+      <details>
+        <summary>What do you need from us to start?</summary>
+        <p class="muted">
+          A short intake form, one stakeholder call, and (optionally) a walkthrough of a recent project
+          so we can see where time is really going.
+        </p>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Next step</h2>
+      <p class="muted">
+        If you want a clear answer to <span class="inline code">“where does AI actually save us time?”</span> — start with a fit call.
+      </p>
+      <div class="ctaRow" style="margin-top:10px">
+        <a class="btn primary" href="/contact">Book a 20-min fit call</a>
+        <a class="btn" href="mailto:hello@mandefilms.com?subject=AI%20Workflow%20Audit%20Inquiry">Email us</a>
+      </div>
+    </section>
+
+    <div class="foot">
+      <div>© <span id="y"></span> M&E Films</div>
+      <div>AI Workflow Consulting Division · Practical, production-safe systems</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
