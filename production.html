@@ -171,7 +171,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 60px;
-        align-items: start;
+        align-items: center;
     }
 
     .section-heading {
@@ -183,6 +183,22 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         line-height: 1.2;
+    }
+
+    .services-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-left .section-heading {
+        text-align: center;
+    }
+
+    .services-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .services-list {
@@ -221,21 +237,20 @@
         box-shadow: 0 0 12px rgba(79, 179, 191, 0.8);
     }
 
-    /* Floating Testimonial Box */
+    /* Quote Box */
     .floating-testimonial {
         background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
         border: 1px solid rgba(79, 179, 191, 0.15);
         border-radius: 14px;
-        padding: 30px 28px;
+        padding: 36px;
         position: relative;
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        animation: floatBox 6s ease-in-out infinite;
-        align-self: center;
-    }
-
-    @keyframes floatBox {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-8px); }
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        max-width: 340px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .floating-testimonial::before {
@@ -254,28 +269,23 @@
         background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
     }
 
-    .floating-testimonial .quote-mark {
-        font-size: 40px;
-        color: rgba(79, 179, 191, 0.3);
-        font-family: Georgia, serif;
-        line-height: 1;
-        margin-bottom: 8px;
-    }
-
     .floating-testimonial .quote-text {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
         font-style: italic;
         color: rgba(255,255,255,0.8);
-        line-height: 1.65;
-        margin-bottom: 14px;
+        line-height: 1.7;
+        text-align: center;
     }
 
-    .floating-testimonial .quote-name {
+    .quote-attribution {
+        margin-top: 18px;
+        text-align: center;
         font-size: 13px;
         font-weight: 700;
         color: #4FB3BF;
         letter-spacing: 0.04em;
+        line-height: 1.6;
     }
 
     /* ── Trusted By Scrolling Bar ── */
@@ -1110,10 +1120,11 @@
                     <li>Live multicamera switching & streaming</li>
                 </ul>
             </div>
-            <div class="floating-testimonial">
-                <div class="quote-mark">"</div>
-                <p class="quote-text">I assign work to freelancers from all around the world and they are among the best. Great communication, asked the right questions, and took initiative. I would 100% recommend them.</p>
-                <p class="quote-name">— Jimmy Cavalieri, <span style="color:#fff; font-weight:700;">Popular Mechanics</span></p>
+            <div class="services-right">
+                <div class="floating-testimonial">
+                    <p class="quote-text">"I assign work to freelancers from all around the world and they are among the best. Great communication, asked the right questions, and took initiative. I would 100% recommend them."</p>
+                </div>
+                <p class="quote-attribution">— Jimmy Cavalieri<br/>Popular Mechanics</p>
             </div>
         </div>
     </div>
