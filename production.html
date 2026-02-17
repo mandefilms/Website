@@ -170,7 +170,7 @@
         z-index: 1;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        gap: 40px;
         align-items: center;
     }
 
@@ -242,15 +242,14 @@
         background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
         border: 1px solid rgba(79, 179, 191, 0.15);
         border-radius: 14px;
-        padding: 36px;
+        padding: 24px 26px 20px 26px;
         position: relative;
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        aspect-ratio: 1 / 1;
         width: 100%;
-        max-width: 340px;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        gap: 14px;
     }
 
     .floating-testimonial::before {
@@ -278,14 +277,16 @@
         text-align: center;
     }
 
-    .quote-attribution {
-        margin-top: 18px;
+    .floating-testimonial .quote-attribution {
         text-align: center;
         font-size: 13px;
         font-weight: 700;
         color: #4FB3BF;
         letter-spacing: 0.04em;
-        line-height: 1.6;
+        line-height: 1.5;
+        border-top: 1px solid rgba(79, 179, 191, 0.15);
+        padding-top: 12px;
+        width: 100%;
     }
 
     /* ── Trusted By Scrolling Bar ── */
@@ -1048,7 +1049,7 @@
     /* ── Responsive ── */
     @media (max-width: 1200px) {
         .hero h1 { font-size: 42px; }
-        .services-content { grid-template-columns: 1fr; gap: 30px; }
+        .content-wrapper { padding: 0 40px; }
         .equipment-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -1123,8 +1124,8 @@
             <div class="services-right">
                 <div class="floating-testimonial">
                     <p class="quote-text">"I assign work to freelancers from all around the world and they are among the best. Great communication, asked the right questions, and took initiative. I would 100% recommend them."</p>
+                    <p class="quote-attribution">— Jimmy Cavalieri<br/>Popular Mechanics</p>
                 </div>
-                <p class="quote-attribution">— Jimmy Cavalieri<br/>Popular Mechanics</p>
             </div>
         </div>
     </div>
