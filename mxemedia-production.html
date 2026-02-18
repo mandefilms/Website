@@ -170,8 +170,8 @@
         z-index: 1;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: center;
+        gap: 60px;
+        align-items: start;
     }
 
     .section-heading {
@@ -183,22 +183,6 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         line-height: 1.2;
-    }
-
-    .services-left {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .services-left .section-heading {
-        text-align: center;
-    }
-
-    .services-right {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     .services-list {
@@ -237,19 +221,21 @@
         box-shadow: 0 0 12px rgba(79, 179, 191, 0.8);
     }
 
-    /* Quote Box */
+    /* Floating Testimonial Box */
     .floating-testimonial {
         background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
         border: 1px solid rgba(79, 179, 191, 0.15);
         border-radius: 14px;
-        padding: 24px 26px 20px 26px;
+        padding: 30px 28px;
         position: relative;
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 14px;
+        animation: floatBox 6s ease-in-out infinite;
+        align-self: center;
+    }
+
+    @keyframes floatBox {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
     }
 
     .floating-testimonial::before {
@@ -268,25 +254,28 @@
         background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
     }
 
+    .floating-testimonial .quote-mark {
+        font-size: 40px;
+        color: rgba(79, 179, 191, 0.3);
+        font-family: Georgia, serif;
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+
     .floating-testimonial .quote-text {
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 500;
         font-style: italic;
         color: rgba(255,255,255,0.8);
-        line-height: 1.7;
-        text-align: center;
+        line-height: 1.65;
+        margin-bottom: 14px;
     }
 
-    .floating-testimonial .quote-attribution {
-        text-align: center;
+    .floating-testimonial .quote-name {
         font-size: 13px;
         font-weight: 700;
         color: #4FB3BF;
         letter-spacing: 0.04em;
-        line-height: 1.5;
-        border-top: 1px solid rgba(79, 179, 191, 0.15);
-        padding-top: 12px;
-        width: 100%;
     }
 
     /* ── Trusted By Scrolling Bar ── */
@@ -325,11 +314,11 @@
     }
 
     .trusted-label {
-        font-size: 15px;
+        font-size: 10px;
         font-weight: 700;
         letter-spacing: 0.2em;
         text-transform: uppercase;
-        color: #4FB3BF;
+        color: rgba(255,255,255,0.3);
         flex-shrink: 0;
     }
 
@@ -487,7 +476,7 @@
 
     .photo-bar-grid {
         display: grid;
-        grid-template-columns: repeat(9, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 3px;
     }
 
@@ -520,18 +509,6 @@
     .photo-bar-item:nth-child(13) { transition-delay: 0.26s; }
     .photo-bar-item:nth-child(14) { transition-delay: 0.28s; }
     .photo-bar-item:nth-child(15) { transition-delay: 0.30s; }
-    .photo-bar-item:nth-child(16) { transition-delay: 0.32s; }
-    .photo-bar-item:nth-child(17) { transition-delay: 0.34s; }
-    .photo-bar-item:nth-child(18) { transition-delay: 0.36s; }
-    .photo-bar-item:nth-child(19) { transition-delay: 0.38s; }
-    .photo-bar-item:nth-child(20) { transition-delay: 0.40s; }
-    .photo-bar-item:nth-child(21) { transition-delay: 0.42s; }
-    .photo-bar-item:nth-child(22) { transition-delay: 0.44s; }
-    .photo-bar-item:nth-child(23) { transition-delay: 0.46s; }
-    .photo-bar-item:nth-child(24) { transition-delay: 0.48s; }
-    .photo-bar-item:nth-child(25) { transition-delay: 0.50s; }
-    .photo-bar-item:nth-child(26) { transition-delay: 0.52s; }
-    .photo-bar-item:nth-child(27) { transition-delay: 0.54s; }
 
     .photo-bar-item img {
         width: 100%;
@@ -638,7 +615,7 @@
 
     /* ── Map Section ── */
     .map-section {
-        background: linear-gradient(180deg, #f5e8d6 0%, #ffffff 55%, #f5e8d6 100%);
+        background: linear-gradient(180deg, #1a2f3d 0%, #2a4555 50%, #1a2f3d 100%);
         padding: 60px 0 30px 0;
         position: relative;
     }
@@ -1049,7 +1026,7 @@
     /* ── Responsive ── */
     @media (max-width: 1200px) {
         .hero h1 { font-size: 42px; }
-        .content-wrapper { padding: 0 40px; }
+        .services-content { grid-template-columns: 1fr; gap: 30px; }
         .equipment-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -1066,7 +1043,7 @@
         .section-heading { font-size: 26px; }
         .dual-grid { grid-template-columns: 1fr; }
         .equipment-grid { grid-template-columns: 1fr; }
-        .photo-bar-grid { grid-template-columns: repeat(5, 1fr); }
+        .photo-bar-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
         .modal-content { padding: 35px 22px; }
         .form-row { flex-direction: column; gap: 16px; }
         .map-testimonial { padding: 25px 30px 40px 30px; }
@@ -1076,7 +1053,7 @@
         nav ul { gap: 12px; }
         nav a { font-size: 8px; }
         .hero h1 { font-size: 24px; }
-        .photo-bar-grid { grid-template-columns: repeat(3, 1fr); }
+        .photo-bar-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
     }
 </style>
 </head>
@@ -1121,11 +1098,10 @@
                     <li>Live multicamera switching & streaming</li>
                 </ul>
             </div>
-            <div class="services-right">
-                <div class="floating-testimonial">
-                    <p class="quote-text">"I assign work to freelancers from all around the world and they are among the best. Great communication, asked the right questions, and took initiative. I would 100% recommend them."</p>
-                    <p class="quote-attribution">— Jimmy Cavalieri<br/>Popular Mechanics</p>
-                </div>
+            <div class="floating-testimonial">
+                <div class="quote-mark">"</div>
+                <p class="quote-text">I assign work to freelancers from all around the world and they are among the best. Great communication, asked the right questions, and took initiative. I would 100% recommend them.</p>
+                <p class="quote-name">— Jimmy Cavalieri, <span style="color:#fff; font-weight:700;">Popular Mechanics</span></p>
             </div>
         </div>
     </div>
@@ -1207,32 +1183,19 @@
 <div class="photo-bar fade-in">
     <div class="photo-bar-grid">
         <div class="photo-bar-item"><img alt="Production" src="Photo (1).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (2).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (3).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (4).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (5).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (6).jpg"/></div>
         <div class="photo-bar-item"><img alt="Production" src="Photo (7).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (8).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (9).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (10).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (11).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (12).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (13).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (14).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (15).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (16).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (17).jpg"/></div>
         <div class="photo-bar-item"><img alt="Production" src="Photo (18).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (6).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (10).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (15).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (13).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (2).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (9).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (16).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (8).jpg"/></div>
         <div class="photo-bar-item"><img alt="Production" src="Photo (19).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (20).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (21).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (22).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (23).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (24).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (25).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (26).jpg"/></div>
-        <div class="photo-bar-item"><img alt="Production" src="Photo (27).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (4).jpg"/></div>
+        <div class="photo-bar-item"><img alt="Production" src="Photo (12).jpg"/></div>
     </div>
 </div>
 
@@ -1300,7 +1263,7 @@
 <section class="map-section">
     <div class="content-wrapper">
         <div class="map-container fade-in">
-            <h2 class="section-heading" style="text-align:center; -webkit-text-fill-color: rgba(20, 75, 90, 0.85); color: rgba(20, 75, 90, 0.85);">Where We've Worked</h2>
+            <h2 class="section-heading" style="text-align:center; -webkit-text-fill-color: #2d8a94; color: #2d8a94;">Where We've Worked</h2>
             <img src="MXEFILMS_Work Locations.png" alt="MXE Media Work Locations Map"/>
             <p class="map-caption" style="color: #e07a3a;">Based in North Carolina. Available across the US, Europe, and internationally.</p>
         </div>
