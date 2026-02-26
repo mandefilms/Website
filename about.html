@@ -31,12 +31,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 18px 80px;
+            padding: 12px 80px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 1);
             backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -238,7 +238,7 @@
         /* Our Why Section */
         .why-section {
             padding: 120px 80px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, #0a1e2a 0%, #1a3a4a 50%, #0a2535 100%);
             position: relative;
             overflow: hidden;
         }
@@ -266,7 +266,7 @@
         .why-container h2 {
             font-size: 54px;
             font-weight: 700;
-            background: linear-gradient(135deg, #000 0%, #1a3540 100%);
+            background: linear-gradient(135deg, #fff 0%, #4FB3BF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -276,7 +276,7 @@
         .why-container p {
             font-size: 19px;
             line-height: 1.8;
-            color: #1a1a1a;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 400;
         }
 
@@ -321,7 +321,8 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 15px 20px;
+                padding: 12px 20px;
+                align-items: center;
             }
 
             nav ul {
