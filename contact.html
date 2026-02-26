@@ -1,534 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - M&E Films</title>
-    <style>
-        @import url('https://fonts.cdnfonts.com/css/avenir');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: 'Avenir', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-            width: 100%;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(79, 179, 191, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(79, 179, 191, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 12px 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 1);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo-nav {
-            height: 32px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-nav:hover {
-            transform: scale(1.05);
-        }
-
-        nav ul {
-            display: flex;
-            gap: 80px;
-            list-style: none;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 11px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 4px;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #4FB3BF 0%, #5DD5E3 100%);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #4FB3BF;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .nav-active {
-            color: #4FB3BF;
-        }
-
-        .nav-active::after {
-            width: 100%;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 160px 80px 120px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-section h1 {
-            font-size: 72px;
-            font-weight: 700;
-            margin-bottom: 35px;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #fff 0%, #4FB3BF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 40px rgba(79, 179, 191, 0.2);
-        }
-
-        .contact-section .intro-text {
-            font-size: 19px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: rgba(255,255,255,0.9);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-section .intro-text a {
-            color: #4FB3BF;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            position: relative;
-            border-bottom: 2px solid transparent;
-        }
-
-        .contact-section .intro-text a:hover {
-            color: #5DD5E3;
-            border-bottom-color: #5DD5E3;
-        }
-
-        /* Social Icons */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin: 50px 0 70px;
-        }
-
-        .social-icon {
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-        }
-
-        .social-icon::before {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            padding: 4px;
-            background: inherit;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .social-icon:hover::before {
-            opacity: 1;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-6px) scale(1.1);
-        }
-
-        .facebook-icon {
-            background: #1877f2;
-            box-shadow: 0 8px 20px rgba(24, 119, 242, 0.4);
-        }
-
-        .facebook-icon:hover {
-            box-shadow: 0 12px 30px rgba(24, 119, 242, 0.6);
-        }
-
-        .youtube-icon {
-            background: #ff0000;
-            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
-        }
-
-        .youtube-icon:hover {
-            box-shadow: 0 12px 30px rgba(255, 0, 0, 0.6);
-        }
-
-        .instagram-icon {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.4);
-        }
-
-        .instagram-icon:hover {
-            box-shadow: 0 12px 30px rgba(220, 39, 67, 0.6);
-        }
-
-        .social-icon svg {
-            width: 26px;
-            height: 26px;
-            fill: white;
-            transition: transform 0.3s;
-        }
-
-        .social-icon:hover svg {
-            transform: scale(1.1);
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 650px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(20px);
-            padding: 60px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
-                        0 0 40px rgba(79, 179, 191, 0.1);
-        }
-
-        .form-row {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 28px;
-        }
-
-        .form-group {
-            flex: 1;
-            margin-bottom: 28px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 13px;
-            font-weight: 700;
-            text-align: left;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .form-group label span {
-            color: #4FB3BF;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 16px 18px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            color: #fff;
-            font-family: 'Avenir', sans-serif;
-            font-size: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #4FB3BF;
-            background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 20px rgba(79, 179, 191, 0.2);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 160px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #4FB3BF 0%, #3a8a94 100%);
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-family: 'Avenir', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(79, 179, 191, 0.3);
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .submit-btn:hover::before {
-            left: 100%;
-        }
-
-        .submit-btn:hover {
-            background: linear-gradient(135deg, #5DD5E3 0%, #4FB3BF 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(79, 179, 191, 0.4);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 80px;
-            background: #000;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.5);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 12px 20px;
-                align-items: center;
-            }
-
-            nav ul {
-                gap: 15px;
-            }
-
-            nav a {
-                font-size: 9px;
-                letter-spacing: 0.12em;
-            }
-
-            .logo-nav {
-                height: 24px;
-            }
-
-            .contact-section {
-                padding: 120px 20px 80px;
-            }
-
-            .contact-section h1 {
-                font-size: 42px;
-            }
-
-            .contact-section .intro-text {
-                font-size: 16px;
-            }
-
-            .social-icons {
-                gap: 20px;
-                margin: 40px 0 60px;
-            }
-
-            .social-icon {
-                width: 48px;
-                height: 48px;
-            }
-
-            .contact-form {
-                padding: 40px 25px;
-            }
-
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-                margin-bottom: 0;
-            }
-
-            .form-group {
-                margin-bottom: 24px;
-            }
-
-            footer {
-                padding: 30px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav ul {
-                gap: 10px;
-            }
-
-            nav a {
-                font-size: 8px;
-            }
-
-            .contact-section {
-                padding: 110px 15px 60px;
-            }
-
-            .contact-section h1 {
-                font-size: 36px;
-            }
-
-            .contact-form {
-                padding: 30px 20px;
-            }
-
-            .social-icon {
-                width: 44px;
-                height: 44px;
-            }
-
-            .social-icon svg {
-                width: 22px;
-                height: 22px;
-            }
-        }
-    </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Mande Films</title>
+<meta name="description" content="Get in touch with Mande Films. We're ready to collaborate in-person or online, anywhere, anytime."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+    --black: #ffffff;
+    --off-black: #c8d0d8;
+    --charcoal: #141a24;
+    --dark-grey: #8a9aaa;
+    --light-grey: #0d1219;
+    --off-white: #0a0f16;
+    --white: #060b12;
+    --amber: #7a9bbf;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+    font-family: var(--font-body);
+    color: var(--black);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(90,120,160,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(90,120,160,0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.fade-up { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.will-animate { opacity: 0; transform: translateY(24px); }
+.fade-up.will-animate.visible { opacity: 1; transform: translateY(0); }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(6,11,18,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s ease; }
+nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.3); }
+.nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.nav-logo-img { height: 28px; display: block; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--dark-grey); text-decoration: none; transition: color 0.3s ease; position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--black); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--amber); }
+
+/* ── CONTACT SECTION ── */
+.contact-section {
+    padding: 140px 40px 100px;
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.section-label {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--dark-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+.contact-section h1 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--black);
+    margin-bottom: 28px;
+    line-height: 1.1;
+}
+.intro-text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--off-black);
+    max-width: 680px;
+    margin: 0 auto 48px;
+}
+.intro-text a {
+    color: var(--amber);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.intro-text a:hover { color: var(--black); }
+
+/* ── SOCIAL ICONS ── */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+.social-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+}
+.social-icon:hover { transform: translateY(-6px); }
+.social-icon svg { width: 24px; height: 24px; fill: white; }
+.facebook-icon { background: #1877f2; box-shadow: 0 6px 16px rgba(24,119,242,0.3); }
+.facebook-icon:hover { box-shadow: 0 10px 24px rgba(24,119,242,0.5); }
+.youtube-icon { background: #ff0000; box-shadow: 0 6px 16px rgba(255,0,0,0.3); }
+.youtube-icon:hover { box-shadow: 0 10px 24px rgba(255,0,0,0.5); }
+.instagram-icon { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); box-shadow: 0 6px 16px rgba(220,39,67,0.3); }
+.instagram-icon:hover { box-shadow: 0 10px 24px rgba(220,39,67,0.5); }
+
+/* ── CONTACT FORM ── */
+.contact-form {
+    max-width: 620px;
+    margin: 0 auto;
+    background: var(--charcoal);
+    padding: 52px 48px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    text-align: left;
+}
+.form-row { display: flex; gap: 20px; margin-bottom: 24px; }
+.form-group { flex: 1; margin-bottom: 24px; }
+.form-row .form-group { margin-bottom: 0; }
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dark-grey);
+}
+.form-group label span { color: var(--amber); }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    color: var(--black);
+    font-family: var(--font-body);
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(122,155,191,0.1);
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+.form-group textarea { resize: vertical; min-height: 140px; }
+.submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: transparent;
+    color: var(--black);
+    border: 1.5px solid var(--amber);
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.submit-btn:hover { background: var(--amber); color: var(--white); }
+
+/* ── FOOTER ── */
+footer { padding: 32px 0; background: var(--light-grey); border-top: 1px solid rgba(255,255,255,0.06); position: relative; z-index: 1; }
+.footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: var(--font-body); font-size: 11px; color: rgba(232,238,236,0.3); letter-spacing: 1px; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-family: var(--font-body); font-size: 11px; color: rgba(232,238,236,0.3); text-decoration: none; transition: color 0.3s ease; }
+.footer-links a:hover { color: rgba(232,238,236,0.6); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .nav-inner { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
+    .contact-section { padding: 120px 24px 80px; }
+    .contact-section h1 { font-size: 42px; }
+    .contact-form { padding: 36px 24px; }
+    .form-row { flex-direction: column; gap: 0; margin-bottom: 0; }
+    .form-row .form-group { margin-bottom: 24px; }
+    .social-icons { gap: 16px; margin-bottom: 48px; }
+    .social-icon { width: 46px; height: 46px; }
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 480px) {
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 9px; }
+    .contact-section h1 { font-size: 36px; }
+    .contact-form { padding: 28px 18px; }
+    .social-icon { width: 42px; height: 42px; }
+    .social-icon svg { width: 20px; height: 20px; }
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <a href="index.html">
-            <img src="ME_Final_Logo_White_Transparentsmall.png" alt="M&E Films" class="logo-nav">
-        </a>
-        <ul>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="portfolio.html">PORTFOLIO</a></li>
-            <li><a href="production.html">PRODUCTION</a></li>
-            <li><a href="contact.html" class="nav-active">CONTACT</a></li>
+
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="/"><img src="ME_Final_Logo_White_Transparentsmall.png" alt="Mande Films" class="nav-logo-img"/></a>
+        <ul class="nav-links">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/production">Production</a></li>
+            <li><a href="/contact" class="active">Contact</a></li>
         </ul>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <h1>Get In Touch</h1>
-        <p class="intro-text">At our core, we believe in pushing the boundaries that define storytelling. With our shared passion for the art of filmmaking, we create unforgettable experiences through all of our productions. If this resonates with you, <a href="mailto:production@gmail.com">email us</a> directly - we're ready to collaborate in-person or online, anywhere anytime.</p>
-        
-        <div class="social-icons">
-            <div class="social-icon facebook-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-            </div>
-            <div class="social-icon youtube-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-            </div>
-            <a href="https://www.instagram.com/mxe_films/" class="social-icon instagram-icon" target="_blank" rel="noopener">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-            </a>
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="section-label fade-up">Get in Touch</div>
+    <h1 class="fade-up">Let's Work Together</h1>
+    <p class="intro-text fade-up">At our core, we believe in pushing the boundaries that define storytelling. With our shared passion for the art of filmmaking, we create unforgettable experiences through all of our productions. If this resonates with you, <a href="mailto:production@gmail.com">email us</a> directly — we're ready to collaborate in-person or online, anywhere anytime.</p>
+
+    <div class="social-icons fade-up">
+        <div class="social-icon facebook-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
         </div>
+        <div class="social-icon youtube-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+        </div>
+        <a href="https://www.instagram.com/mxe_films/" class="social-icon instagram-icon" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+    </div>
 
-        <!-- Contact Form -->
-        <form class="contact-form" name="contact" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="contact">
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label>First name <span>*</span></label>
-                    <input type="text" name="first-name" required>
-                </div>
-                <div class="form-group">
-                    <label>Last name <span>*</span></label>
-                    <input type="text" name="last-name" required>
-                </div>
-            </div>
-
+    <!-- Contact Form -->
+    <form class="contact-form fade-up" name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact"/>
+        <div class="form-row">
             <div class="form-group">
-                <label>Email <span>*</span></label>
-                <input type="email" name="email" required>
+                <label>First name <span>*</span></label>
+                <input type="text" name="first-name" required placeholder="First name"/>
             </div>
-
             <div class="form-group">
-                <label>Message</label>
-                <textarea name="message"></textarea>
+                <label>Last name <span>*</span></label>
+                <input type="text" name="last-name" required placeholder="Last name"/>
             </div>
+        </div>
+        <div class="form-group">
+            <label>Email <span>*</span></label>
+            <input type="email" name="email" required placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" placeholder="Tell us about your project..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</section>
 
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
-    </section>
+<footer>
+    <div class="footer-inner">
+        <p class="footer-copy">© 2026 Mande Films</p>
+        <div class="footer-links">
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Vimeo</a>
+        </div>
+    </div>
+</footer>
 
-    <!-- Footer -->
-    <footer>
-        <img src="ME_Final_Logo_White_Transparentsmall.png" alt="M&E Films" style="height: 25px; margin-bottom: 15px;">
-        <p>Charlotte, London, and World Wide</p>
-    </footer>
-    
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
+<script>
+// Scroll fade
+const fadeEls = document.querySelectorAll('.fade-up');
+fadeEls.forEach(el => el.classList.add('will-animate'));
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+fadeEls.forEach(el => observer.observe(el));
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
