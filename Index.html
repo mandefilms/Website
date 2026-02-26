@@ -577,7 +577,7 @@ const statsObserver = new IntersectionObserver((entries) => {
             statsObserver.unobserve(entry.target);
         }
     });
-}, { threshold: 0.5 });
+}, { threshold: 0.3 });
 const statsSection = document.querySelector('.stats-section');
 if (statsSection) statsObserver.observe(statsSection);
 
@@ -642,4 +642,7 @@ updateSlide();
 // Modals
 function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
-function closeModalOnOverlay(e, id) 
+function closeModalOnOverlay(e, id) { if (e.target === e.currentTarget) closeModal(id); }
+</script>
+</body>
+</html>
