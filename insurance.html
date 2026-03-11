@@ -341,9 +341,8 @@ footer {
         <a class="nav-logo" href="/">Northfield Assets</a>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
             <li><a href="/insurance.html" class="active">Insurance &amp; Risk</a></li>
+            <li><a href="#" id="navOpenBooking">Contact</a></li>
         </ul>
     </div>
 </nav>
@@ -411,8 +410,8 @@ footer {
         <p class="footer-copy">© 2026 Northfield Assets</p>
         <div class="footer-links">
             <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+            <a href="/insurance.html">Insurance &amp; Risk</a>
+            <a href="#" id="footerOpenBooking">Contact</a>
         </div>
     </div>
 </footer>
@@ -501,6 +500,8 @@ window.addEventListener('scroll', () => {
   }
 
   document.getElementById('openBookingCTA')?.addEventListener('click', openModal);
+  document.getElementById('navOpenBooking')?.addEventListener('click', e => { e.preventDefault(); openModal(); });
+  document.getElementById('footerOpenBooking')?.addEventListener('click', e => { e.preventDefault(); openModal(); });
   document.getElementById('closeBooking')?.addEventListener('click', closeModal);
   document.getElementById('cancelBooking')?.addEventListener('click', closeModal);
   modal?.addEventListener('click', e => { if(e.target === modal) closeModal(); });
