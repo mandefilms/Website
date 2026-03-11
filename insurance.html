@@ -234,11 +234,89 @@ footer {
 .footer-links a { font-family: var(--font-body); font-size: 11px; color: rgba(232,238,236,0.3); text-decoration: none; transition: color 0.3s ease; }
 .footer-links a:hover { color: rgba(232,238,236,0.6); }
 
+/* MODAL */
+.modalBackdrop {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none; align-items: center; justify-content: center;
+    padding: 18px; z-index: 999;
+}
+.modalBackdrop.isOpen { display: flex; }
+.modal {
+    width: min(640px, 100%);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(11,15,20,0.97);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    overflow: hidden;
+    font-family: var(--font-body);
+}
+.modalHeader {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.modalHeader h3 {
+    margin: 0; font-size: 16px; font-weight: 700;
+    color: var(--amber); letter-spacing: -0.2px;
+}
+.iconBtn {
+    appearance: none;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+    color: rgba(232,238,246,0.9);
+    border-radius: 12px; padding: 8px 10px;
+    cursor: pointer; font-weight: 800;
+    transition: box-shadow 0.2s ease, transform 0.08s ease;
+}
+.iconBtn:hover { box-shadow: 0 0 0 1px rgba(122,155,191,0.35); }
+.iconBtn:active { transform: translateY(1px); }
+.modalBody { padding: 16px; }
+.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label {
+    font-size: 12.5px; color: rgba(232,238,246,0.82);
+    font-weight: 550; letter-spacing: normal; text-transform: none;
+}
+.field input, .field textarea {
+    width: 100%; border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.03);
+    color: rgba(232,238,246,0.92);
+    padding: 10px 12px; outline: none;
+    font-family: var(--font-body); font-weight: 300; font-size: 14px;
+}
+.field input:focus, .field textarea:focus {
+    border-color: rgba(122,155,191,0.45);
+    box-shadow: 0 0 0 1px rgba(122,155,191,0.12), 0 0 16px rgba(122,155,191,0.08);
+}
+.field textarea { min-height: 92px; resize: vertical; grid-column: 1 / -1; }
+.modalActions {
+    display: flex; gap: 10px; justify-content: flex-end; margin-top: 12px;
+}
+.modalBtn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 10px 16px; border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.04);
+    font-family: var(--font-body); font-weight: 600;
+    color: rgba(232,238,246,0.9); cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+    font-size: 14px;
+}
+.modalBtn:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.18); }
+.modalBtnPrimary {
+    background: rgba(122,155,191,0.18);
+    border-color: rgba(122,155,191,0.45);
+}
+.modalBtnPrimary:hover { background: rgba(122,155,191,0.28); }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .cards-grid { grid-template-columns: 1fr; max-width: 560px; }
 }
 @media (max-width: 768px) {
+    .formGrid { grid-template-columns: 1fr; }
     .nav-inner { padding: 0 24px; }
     .nav-links { gap: 20px; }
     .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
@@ -318,7 +396,7 @@ footer {
 <section class="cta-section">
     <div class="container fade-up">
         <p class="cta-label">Ready to get started?</p>
-        <a href="/contact" class="cta-button">Talk to us about your portfolio &rarr;</a>
+        <button id="openBookingCTA" class="cta-button" type="button">Talk to us about your portfolio &rarr;</button>
     </div>
 </section>
 
@@ -333,6 +411,54 @@ footer {
     </div>
 </footer>
 
+<!-- Booking Modal -->
+<div class="modalBackdrop" id="bookingModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modalHeader">
+      <h3 id="modalTitle">Request a sample report walkthrough</h3>
+      <button class="iconBtn" id="closeBooking" type="button" aria-label="Close">✕</button>
+    </div>
+    <div class="modalBody">
+      <form
+        id="bookingForm"
+        name="booking-request"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="booking-request">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="formGrid">
+          <div class="field">
+            <label for="ins-name">Name</label>
+            <input id="ins-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="ins-company">Company</label>
+            <input id="ins-company" name="company" type="text" autocomplete="organization" required>
+          </div>
+          <div class="field">
+            <label for="ins-date">Preferred date</label>
+            <input id="ins-date" name="preferred_date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="ins-time">Preferred time</label>
+            <input id="ins-time" name="preferred_time" type="time" required>
+          </div>
+          <div class="field" style="grid-column:1/-1;">
+            <label for="ins-notes">Notes (optional)</label>
+            <textarea id="ins-notes" name="notes" placeholder="Anything we should know about your portfolio, locations, or timing?"></textarea>
+          </div>
+        </div>
+        <div class="modalActions">
+          <button class="modalBtn" type="button" id="cancelBooking">Cancel</button>
+          <button class="modalBtn modalBtnPrimary" type="submit" id="submitBooking">Send request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script>
 const fadeEls = document.querySelectorAll('.fade-up');
 fadeEls.forEach(el => el.classList.add('will-animate'));
@@ -344,6 +470,59 @@ fadeEls.forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
 });
+
+(function(){
+  const modal = document.getElementById('bookingModal');
+  const form  = document.getElementById('bookingForm');
+  const submitBtn = document.getElementById('submitBooking');
+
+  function openModal(){
+    modal.classList.add('isOpen');
+    modal.setAttribute('aria-hidden','false');
+    const dateEl = document.getElementById('ins-date');
+    if(dateEl && !dateEl.value){
+      const d = new Date(); d.setDate(d.getDate()+1);
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth()+1).padStart(2,'0');
+      const dd = String(d.getDate()).padStart(2,'0');
+      dateEl.value = `${yyyy}-${mm}-${dd}`;
+    }
+    setTimeout(() => document.getElementById('ins-name')?.focus(), 50);
+  }
+  function closeModal(){
+    modal.classList.remove('isOpen');
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  document.getElementById('openBookingCTA')?.addEventListener('click', openModal);
+  document.getElementById('closeBooking')?.addEventListener('click', closeModal);
+  document.getElementById('cancelBooking')?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && modal.classList.contains('isOpen')) closeModal();
+  });
+
+  form?.addEventListener('submit', async e => {
+    e.preventDefault();
+    if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+    try{
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+      if(!res.ok) throw new Error('failed');
+      if(submitBtn) submitBtn.textContent = 'Sent ✓';
+      setTimeout(() => {
+        form.reset(); closeModal();
+        if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Send request'; }
+      }, 700);
+    }catch{
+      alert('Sorry — something went wrong. Please try again.');
+      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Send request'; }
+    }
+  });
+})();
 </script>
 </body>
 </html>
