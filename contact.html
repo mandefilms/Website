@@ -306,6 +306,30 @@ fadeEls.forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
 });
+
+// Netlify form submit
+(function(){
+  const form = document.querySelector('.contact-form');
+  const btn  = form?.querySelector('.submit-btn');
+  if (!form) return;
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+      if (!res.ok) throw new Error('failed');
+      if (btn) btn.textContent = 'Sent ✓';
+      setTimeout(() => { form.reset(); if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; } }, 1200);
+    } catch {
+      alert('Sorry — something went wrong. Please try again.');
+      if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
+    }
+  });
+})();
 </script>
 
 <!--Start of Tawk.to Script-->
