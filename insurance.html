@@ -183,20 +183,27 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.3); }
 .card-body strong { color: var(--text); font-weight: 600; }
 
 /* BOTTOM LINE */
-.bottomline-section { padding: 100px 0; background: var(--bg); }
-.bottomline-inner { max-width: 760px; }
-.bottomline-rule { width: 48px; height: 2px; background: var(--amber); margin-bottom: 40px; }
+.bottomline-section {
+    padding: 20px 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+.bottomline-inner {
+    display: flex; align-items: center; gap: 16px;
+}
+.bottomline-rule { display: none; }
 .bottomline-heading {
     font-family: var(--font-body); font-size: 11px; font-weight: 600;
-    letter-spacing: 3.5px; text-transform: uppercase;
-    color: var(--amber); margin-bottom: 24px;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--amber); white-space: nowrap; margin: 0;
 }
 .bottomline-text {
-    font-family: var(--font-display);
-    font-size: clamp(24px, 3vw, 36px);
-    font-weight: 400; line-height: 1.5; color: var(--text);
+    font-family: var(--font-body);
+    font-size: 13px; font-weight: 400;
+    line-height: 1.4; color: var(--text-secondary); margin: 0;
 }
-.bottomline-text em { font-style: italic; color: var(--text-secondary); }
+.bottomline-text em { font-style: italic; }
 
 /* CTA */
 .cta-section {
@@ -385,8 +392,7 @@ footer {
 
 <section class="bottomline-section">
     <div class="container">
-        <div class="bottomline-inner fade-up">
-            <div class="bottomline-rule"></div>
+        <div class="bottomline-inner">
             <p class="bottomline-heading">The Bottom Line</p>
             <p class="bottomline-text">Not a replacement for formal inspections. <em>An independent evidence base you can rely on when it matters most.</em></p>
         </div>
