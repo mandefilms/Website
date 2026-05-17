@@ -45,7 +45,7 @@ body { font-family: var(--font-body); color: var(--black); background: var(--whi
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(6,11,18,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s ease; }
 nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.3); }
 .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
-.nav-logo { font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--black); text-decoration: none; }
+.nav-logo-img { height: 28px; display: block; }
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--dark-grey); text-decoration: none; transition: color 0.3s ease; position: relative; }
 .nav-links a:hover, .nav-links a.active { color: var(--black); }
@@ -223,7 +223,7 @@ footer { padding: 32px 0; background: var(--light-grey); border-top: 1px solid r
 <!-- NAV -->
 <nav id="navbar">
     <div class="nav-inner">
-        <a class="nav-logo" href="/">Mande Films</a>
+        <a href="/"><img src="ME_Final_Logo_White_Transparentsmall.png" alt="Mande Films" class="nav-logo-img"/></a>
         <ul class="nav-links">
             <li><a class="active" href="/">Home</a></li>
             <li><a href="/about">About</a></li>
@@ -241,7 +241,6 @@ footer { padding: 32px 0; background: var(--light-grey); border-top: 1px solid r
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content container">
-        <p class="hero-tag">| Filmmaking for Good |</p>
         <h1 class="hero-title">Filmmaking<br/>for Good</h1>
     </div>
 </section>
@@ -320,8 +319,8 @@ footer { padding: 32px 0; background: var(--light-grey); border-top: 1px solid r
         <div class="section-label fade-up">Latest Work</div>
         <div class="video-grid fade-up">
             <div class="video-left">
-                <div class="video-embed" onclick="playVideo(this, 'cSkeI8sk6nc')">
-                    <img src="M_E_Films.png" alt="Mande Films showreel"/>
+                <div class="video-embed" onclick="playVideo(this, 'OnSJIlc06M0')">
+                    <img src="MaybeOneDayI_llFly__edited.jpg" alt="Maybe One Day I'll Fly"/>
                     <div class="play-btn"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
                     <iframe allowfullscreen allow="autoplay; encrypted-media" src=""></iframe>
                 </div>
